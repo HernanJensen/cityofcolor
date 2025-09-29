@@ -1,0 +1,511 @@
+.guide_form{
+
+  padding-top:20rem;
+  .frm{
+    max-width:64rem;
+  }
+}
+
+
+.fld{
+  width:100%;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  &_lbl{
+    margin-bottom:1.5rem;
+    display:block;
+
+    transition:.4s color $swiftOut;
+
+
+      span{
+        display:block;
+        color:$grey;
+        margin-top:1.5rem;
+      }
+  }
+
+  &_npt{
+    padding: 1.2rem 1rem;
+    width: 100%;
+    border:1px solid toRGBA($grey, .25);
+    border-radius:2px;
+    transition: .45s color $swiftOut;
+    position:relative;
+    overflow-x:hidden;
+
+    font-size:max(1.6rem,16px);
+    transition:.4s border-color $swiftOut;
+
+    &::placeholder{
+      font-size: max(1.4rem,14px);
+      color: $grey;
+      transition:.24s opacity .3s $swiftOut,.6s transform $swiftOut;
+    }
+
+    &:focus{
+      border-color:$dark;
+      &::placeholder{
+        opacity:0;
+        transform:translateX(16px);
+        transition:.4s opacity  $swiftOut,.6s transform $swiftOut;
+
+      }
+    }
+  }
+
+  &_err{
+    /* height:var(--hMaster); */
+
+    height:0;
+    overflow:clip;
+    transition:.4s height $swiftOut;
+
+    &_h{
+      padding-top:1.5rem;
+      color:$grey;
+    }
+  }
+
+
+
+  textarea{
+    line-height:1.25;
+    min-height:calc(3.2rem + 4lh);
+  }
+
+  & + .fld{
+    margin-top:4rem;
+  }
+  & + .rad{
+    margin-top:4rem;
+  }
+
+
+
+
+}
+
+.file{
+  margin-top:5rem;
+  position:relative;
+  input{
+    display:none;
+  }
+  &_t{
+    width:100%;
+    margin-bottom:1.5rem;
+    display:block;
+
+    .p {
+      & + ul{
+        color:$grey;
+        margin-top:1rem;
+        li{
+          line-height:1.5;
+          &::before{
+            content:'-';
+            display:inline-block;
+          }
+          p{
+            margin-left:1rem;
+            display:inline-block;
+          }
+        }
+      }
+    }
+  }
+  &_drop{
+
+    /* position:fixed;
+    left:0%;
+    width:100%;
+    top:0;
+    z-index:1213123;
+    height:100%;
+    background:red; */
+
+    display:none;
+  }
+  &_file{
+    position:absolute;
+    left:0;
+    bottom:100%;
+  }
+
+
+
+    &_err{
+      /* height:var(--hMaster); */
+      height:0;
+      overflow:clip;
+      transition:.4s height $swiftOut;
+
+      &_h{
+        padding-top:1.5rem;
+        color:$grey;
+      }
+    }
+
+
+    &_list{
+      margin-top:3rem;
+      &_t{
+        margin-bottom:1.5rem;
+      }
+      &_el{
+        height:var(--hMaster,0);
+        overflow:clip;
+        margin-top:1rem;
+        border:1px solid $greyX;
+        transition:.4s height $swiftOut,.4s opacity $swiftOut;
+        &:not(.A){
+          height:0;
+          opacity:0;
+        }
+        &H{
+          padding-top:1.5rem;
+          border-radius:2px;
+          display:flex;
+          justify-content:flex-start;
+          align-items:center;
+          padding:1rem;
+          img{
+            width:3rem;
+            height:2.5rem;
+            object-fit:contain;
+            object-position:left center;
+            margin-right:2rem;
+          }
+          span{
+            font-size:max(1.4rem,14px);
+            letter-spacing:-.02em;
+          }
+          button{
+            margin-left:auto;
+            display:flex;
+            width:1.5rem;
+          }
+        }
+      }
+    }
+
+  .aBtn{
+    
+  }
+
+  &-err{
+    .file_err{
+      height:var(--hMaster);
+    }
+  }
+
+  & + .fld{
+    margin-top:4rem;
+  }
+  & + .rad{
+    margin-top:4rem;
+  }
+  & + .chk{
+    margin-top:4rem;
+  }
+}
+
+
+
+.rad{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:1rem 1.2rem;
+  position:relative;
+
+  &_t{
+    width:100%;
+    margin-bottom:1.5rem;
+    display:block;
+
+    .p {
+      &:first-child{
+
+      }
+      & + .p{
+        color:$grey;
+        margin-top:1rem;
+      }
+    }
+  }
+
+  &_el{
+    position:relative;
+    text-align:center;
+    border:1px solid toRGBA($grey, .25);
+    border-radius:2px;
+    font-size:max(1.2rem,12px);
+    transition:.4s background $swiftOut,.4s color  $swiftOut,.4s border-color $swiftOut;
+    cursor:pointer;
+
+    &_npt{
+      position: absolute; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); width: 1px; height: 1px; white-space: nowrap;
+    }
+    &_lbl{
+      padding:1.6rem;
+      display:block;
+
+    }
+
+    &_err{
+      /* height:var(--hMaster); */
+      height:0;
+      overflow:clip;
+      transition:.4s height $swiftOut;
+
+      &_h{
+        padding-top:1.5rem;
+        color:$grey;
+
+      }
+
+
+    }
+    &:hover,&:has(input:checked){
+        background:$dark;
+        color:$light;
+        border-color:$dark;
+
+        transition:.4s background $swiftOut,.4s color .2s $swiftOut,.4s border-color $swiftOut;
+
+    }
+  }
+
+  
+  & + .fld{
+    margin-top:4rem;
+  }
+  & + .rad{
+    margin-top:4rem;
+  }
+  & + .chk{
+    margin-top:4rem;
+  }
+}
+
+
+
+.chk{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: max(1.2rem, 12px);
+  line-height: 1.1;
+  font-weight: 400;
+  position: relative;
+  align-self: start;
+  &_npt{
+    width: max(1.5rem, 15px);
+    aspect-ratio: 1/1;
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid $grey;
+    position: relative;
+    transition: .3s border-color $swiftOut;
+    cursor: pointer;
+    overflow: hidden;
+    &::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: $dark;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: .45s transform $swiftOut;
+    }
+    &:checked{
+      &::after{
+        transform: scale(2);
+      }
+    }
+  }
+  &_lbl{
+    cursor: pointer;
+    a{
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &:has(input:focus-visible){
+    &::after{
+      content: "";
+      position: absolute;
+      inset: -.4rem;
+      border: 2px solid $dark;
+      border-radius: .4rem;
+    }
+  }
+
+  & + .fld{
+    margin-top:4rem;
+  }
+  & + .rad{
+    margin-top:4rem;
+  }
+  & + .chk{
+    margin-top:2rem;
+  }
+}
+
+
+
+
+
+
+
+.frm{
+
+  &_btn{
+    margin-top:4rem;
+
+    &-big{
+      width:100%;
+    }
+  }
+
+  &_err{
+    /* height:0; */
+    overflow:clip;
+    height:var(--hMaster);
+    transition:.4s height $swiftOut;
+
+    &_h{
+      padding-top:1.5rem;
+      color:$grey;
+    }
+
+
+        button{
+          transition:.4s color $swiftOut;
+          text-decoration:underline;
+          &:hover{
+            color:$dark;
+          } 
+        }
+  }
+
+
+  &_done{
+    height:0;
+    overflow:clip;
+    transition:.4s height $swiftOut;
+
+    &_h{
+      padding-top:4rem;
+      opacity:0;
+
+      transition:.4s opacity .6s $swiftOut;
+
+      p{
+        & + p{
+
+          color:$grey;
+          margin-top:1rem;
+        }
+      }
+    
+    }
+
+
+    
+  }
+
+  /*ERRORS*/
+  &.subm{
+
+    
+    .fld{
+
+      &:has(input:invalid,textarea:invalid){
+        input,textarea{
+          border-color:$error;
+        }
+        label{
+          color:$error;
+        }
+
+        .fld_err{
+
+          height:var(--hMaster);
+        }
+        
+      }
+    }
+
+
+    .rad{
+      &:has(input:invalid){
+        legend{
+          color:red;
+        }
+        .rad_el{
+          border-color:$error;
+        }
+      }
+    }
+
+
+    .chk{
+
+      &:has(input:invalid){
+        input{
+          border-color:$error;
+        }
+        label{
+          color:$error;
+        }
+      }
+    }
+
+
+  }
+}
+
+
+
+.frm{
+  &:not(.frmErr){
+    .frm_err{
+      height:0;
+    }
+  }
+  &.frmDone{
+    /* pointer-events:none!important; */
+      
+    .frm_flds{
+      opacity:0.4;
+      transition:.5s opacity $swiftOut;
+
+    }
+    & + .frm_done{
+          height:var(--hMaster);
+
+          .frm_done_h{
+            opacity:1;
+          }
+    }
+    button{
+
+      pointer-events:none!important;
+    }
+  }
+  /* &:not(.frmDone){
+    & + .frm_done{
+      height:0;
+
+      &_h{
+        opacity:0;
+      }
+    }
+  } */
+}

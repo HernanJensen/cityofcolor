@@ -1,0 +1,70 @@
+section.guide_form
+  .grid
+    
+      form.frm(data-title="Form TEST" aria-describedby="privacy-note" novalidate)
+        input(type="hidden" id="hiddentitle" name="No existo")
+        .flds
+          .fld
+            label.fld_lbl(for="name") Name*
+            input.fld_npt(autocomplete="false" id="name" name="name" placeholder="Name" aria-label="Name" required="required")
+          .fld
+            label.fld_lbl(for="company_name") Company name
+            input.fld_npt(autocomplete="false" id="company_name" name="company_name" placeholder="Company name" aria-label="Company name" )
+          .fld
+            label.fld_lbl(for="email") Email*
+            input.fld_npt(type="email" autocomplete="false" id="email" name="email" placeholder="Email" aria-label="Email" required="required")
+          .fld
+            label.fld_lbl(for="telephone") Telephone*
+            input.fld_npt(type="tel" autocomplete="false" id="telephone" name="telephone" placeholder="Telephone" aria-label="Telephone" required="required")
+          
+          .fld
+            label.fld_lbl(for="message") Message*
+            textarea.fld_npt( autocomplete="false" id="message" name="message" placeholder="Message" aria-label="Message" required="required")
+          .file
+            .file_drop
+            label.aBtn.aBtn-dk.file_btn(for="images")
+              span.aBtn_t(data-split="words:{wrap:clip|clone:bottom|class:w}|lines:false") Upload Images
+              
+            input.file_file(type="file" id="images" name="images" multiple accept=".jpg,.png,.webp")
+            .file_err.hOBRs(aria-label="hidden")
+              .file_err_h.hOBRm Files cant be bigger than 2MB
+            .file_list
+              h3.h3.file_t Uploads
+
+              //- .file_list_el.hOBRs.A
+              //-   .file_list_elH.hOBRm
+              //-     img(src="")
+              //-     span Imagen
+              //-     button(type="button" aria-label="delete image") Delete
+          fieldset.rad(data-label="I wish to:")
+            legend.rad_t
+              h4.p I wish to:
+              p.p Choose one option below
+            .rad_el
+              input.rad_el_npt(type="radio" id="monoselector0" name="monoselector" required="required")
+              label.rad_el_lbl(for="monoselector0") Offer a property
+            .rad_el
+              input.rad_el_npt(type="radio" id="monoselector1" name="monoselector" required="required")
+              label.rad_el_lbl(for="monoselector1") Seek a sanctuary
+            .rad_el
+              input.rad_el_npt(type="radio" id="monoselector2" name="monoselector" required="required")
+              label.rad_el_lbl(for="monoselector2") Seek a sanctuaryA
+            .rad_el
+              input.rad_el_npt(type="radio" id="monoselector3" name="monoselector" required="required")
+              label.rad_el_lbl(for="monoselector3") Seek a sanctuaryB
+            .rad_el
+              input.rad_el_npt(type="radio" id="monoselector4" name="monoselector" required="required")
+              label.rad_el_lbl(for="monoselector4") Seek a sanctuaryC
+          
+          .chk
+            input.chk_npt(type="checkbox" id="monoselector5" name="monoselector5" required="required")
+            label.chk_lbl(for="monoselector5") I accept <a>Terms & conditions</a>
+        
+          button.frm_btn.aBtn.aBtn-dk(type="submit")
+            span.aBtn_t(data-split="words:{wrap:clip|clone:bottom|class:w}|lines:false") Sent form
+        .frm_done.hOBRs(aria-label="hidden")
+          .frm_done_h.hOBRm Message Sent
+
+        aside.frm_legal#privacy-note
+          p Texto legal
+          p Texto legal 2

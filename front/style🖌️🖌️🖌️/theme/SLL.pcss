@@ -1,0 +1,96 @@
+
+
+
+html.lenis {
+  height: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &:scrollbar {
+    display: none;
+  }
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+
+.lenis.lenis-scrolling iframe {
+   pointer-events: none;
+} 
+
+.sllbar{
+  @include hover{
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:40;
+    
+    pointer-events: none;
+    &_prg{
+      position:absolute;
+      
+      right:0;
+      top:0;
+      bottom:0;
+      width:4px;
+      background:$dark;
+      transform-origin:top;
+    }
+
+  }
+  @include nohover{
+    display: none;
+  }
+}
+
+
+
+
+
+
+/* Detecta si tiene overflow y si ha hecho scroll */
+
+*:has(.watchOF){
+
+  timeline-scope: --hasoverflow;
+  animation: --hasoverflow forwards;
+  animation-timeline: --hasoverflow;
+  container-name: --hasoverflow;
+
+}
+
+@keyframes --hasoverflow {
+  0%,to{--hasoverflow: 1;}
+  0%{--hassll: 0;--prgsll:0;}
+  1%{--hassll: 1;}
+  100%{--hassll: 1;--prgsll:1;}
+}
+
+
+
+
+.watchOF{
+
+  scroll-timeline: --hasoverflow;
+}
+
+/* @container --hasoverflow style(--hasoverflow: 1) {
+  
+}
+@container --hasoverflow style(--hassll: 1) {
+
+} */

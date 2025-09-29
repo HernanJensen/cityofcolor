@@ -1,0 +1,59 @@
+mixin vidclick($data)
+  - $ass = $data['ass']
+  - $extraC = isset($data['class']) ? $data['class'] : ''
+  - $lazy = 0
+  - $auto = 'click'
+  - $xx = isset($data['xx']) ? $data['xx'] : NULL;
+  - $enter = isset($data['enter']) ? $data['enter'] : NULL;
+  - $entersm = isset($data['entersm']) ? $data['enter'] : NULL;
+  - $xx = isset($data['xx']) ? $data['xx'] : 'none';
+
+  // CONTROLS
+  - $controls = isset($data['controls']) ? $data['controls'] : false;
+  - $click = isset($data['click']) ? true : false;
+  - $play = isset($data['play']) ? true : false;
+  - $mute = isset($data['mute']) ? true : false;
+
+
+  - $type = isset($ass['type']) ? $ass['type'] : ''
+
+  - $ass['url'] = str_contains($ass['url'],'https:') ? $ass['url'] : $predev.$ass['url']
+  - $ass['sm']['url'] = isset($ass['sm']['url']) ? $predev.$ass['sm']['url'] : NULL
+
+  - $respSM = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['sm']['url']
+  - $respLG = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['url']
+
+  - $poster = ($ass['poster']['url']) ? $predev.$ass['poster']['url'] : NULL
+  
+  - $target =  isset($data['target']) ? $data['target'] : NULL
+
+  
+  //- Si el type es igual en LG y SM, full resp, no necesita el data-SRC, bebe del SM y el LG.
+  .vid
+    video(
+      class=$extraC 
+      controls?=$controls 
+      data-auto=$auto
+      data-srcsm?=$respSM
+      data-srclg?=$respLG
+      loading="none"
+      width=$ass['w'] 
+      height=$ass['h'] 
+      muted="true" 
+      alt=$ass['alt']
+      data-xx?=$xx
+      data-target?=$target
+      poster?=$poster
+    )
+    - if($controls == false)
+      - if($click == true)
+          button.vidClick(aria-label="Play video")
+          
+      .vid_Ctr
+        - if($play == true)
+          button.vid_Ctr_pl(aria-label="Play/Pause video")
+            span
+            span
+
+        - if($mute == true)
+          button.vid_Ctr_mute(aria-label="Mute/Unmute video")

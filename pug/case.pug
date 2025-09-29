@@ -1,0 +1,42 @@
+include ./basic/mixins.pug
+- $enter = 'bottom top'
+- $enterpt = 'bottom top'
+main.project(data-skin="project")
+  section.project_intro
+    .project_intro_titlexs
+      h2=$post_title
+    .project_intro_info
+      .project_intro_title
+        h2=$post_title
+      .project_intro_list
+        if $rep_0info_a
+          ul
+            each $val, $key in $rep_0info_a
+              li
+                h3=$val['title']
+                p!= $val['text']
+      .project_intro_text
+        .wysi!= $wysi_0
+    .project_intro_images.stck
+      .stck_hold
+        .stck_main.slider
+          button.slider_left
+          button.slider_right
+          if $flex_0
+              each $val, $i in $flex_0
+                .slider_el(class=$val['acf_fc_layout'])
+                  if $val['imvid']['url']
+                    if $i === 0
+                      video.WT( data-xx='none' data-auto='true' data-src=$val['imvid']['url'] width=$val['imvid']['w'] height=$val['imvid']['h'] muted="true" alt=$val['imvid']['poster']['image']['alt'])
+                    else
+                      video(data-enter=$enter data-enterpt=$enterpt loading="none" data-xx='none'  autoplay playsinline=true  data-auto='true' src=$val['imvid']['url'] muted="true" width=$val['imvid']['w'] height=$val['imvid']['h'] alt=$val['imvid']['poster']['image']['alt'])
+                  else
+                    if $i === 0
+                      img.WT(data-xx='none'  src=$val['imvid']['poster']['image']['img'] width=$val['imvid']['poster']['image']['w'] height=$val['imvid']['poster']['image']['h'] alt=$val['imvid']['poster']['image']['alt'])
+                    else
+                      img(data-enter=$enter data-enterpt=$enterpt data-xx='none' loading="lazy" src=$val['imvid']['poster']['image']['img'] width=$val['imvid']['poster']['image']['w'] height=$val['imvid']['poster']['image']['h'] alt=$val['imvid']['poster']['image']['alt'])
+    a.project_intro_close(href=$ops['projects']['url'])
+      .cross
+
+    
+    

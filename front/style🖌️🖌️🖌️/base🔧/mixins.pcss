@@ -1,0 +1,175 @@
+
+
+@define-mixin isPc {
+  @media (min-width: $(touch)px) {
+
+    @mixin-content;
+  
+  }
+}
+
+
+/* Si hacemos escalados de tamaños, jugarla con esto */
+@define-mixin isToch {
+  @media  (min-width: $(desktop)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin noToch {
+  @media (min-aspect-ratio: 1.2) and (max-width: $(touch)px) and ((min-width: $(touch)px) and (max-width: $(desktop)px )) {
+    @mixin-content;
+  }
+}
+
+
+@define-mixin isPcL {
+  @media (min-width: $(desktop)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isPcS {
+  @media (min-width: $(touch)px) and (max-width: $(desktop)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isResp {
+  @media (max-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isPcTabletLD {
+  @media (min-aspect-ratio: 1.2) and (max-width: $(touch)px), (min-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isRespLD {
+  @media (min-aspect-ratio: 1.2) and (max-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isRespPT {
+  @media (max-aspect-ratio: 1.2) and (max-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isTablet {
+  @media (min-width: $(PTMax)px) and (max-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isTabletPT {
+  @media (min-width: $(PTMax)px) and (max-width: $(touch)px) and (max-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isTabletLD {
+  @media (min-width: $(PTMax)px) and (max-width: $(touch)px) and (min-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+@define-mixin noMobile {
+  @media (min-width: $(PTMax)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isMobile {
+  @media (max-width: $(PTMax)px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isMobilePT {
+  @media (max-width: $(PTMax)px) and (max-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isMobileLD {
+  @media (max-height: $(PTMax)px) and (max-width: $(PTMaxH)px) and (min-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+
+
+
+@define-mixin isMain {
+  @media (min-aspect-ratio: 1.2) and (max-width: $(touch)px), (min-width: $(touch)px) {
+    @mixin-content;
+  }
+}
+@define-mixin isLD {
+  @media (max-width: $(touch)px) and (min-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+@define-mixin isPT {
+  @media (max-width: $(touch)px) and (max-aspect-ratio: 1.2) {
+    @mixin-content;
+  }
+}
+
+
+
+@define-mixin center {
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+@define-mixin centerY {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+
+@define-mixin centerX {
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+
+
+@define-mixin  hover{
+  @media (hover: hover) {
+    @mixin-content;
+  }
+}
+
+@define-mixin  nohover{
+	@media (hover: none) {
+    @mixin-content;
+	}
+}
+
+@define-mixin clock {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@define-mixin imgCover{
+  position:absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,165 @@
+html {
+  /* PADGRID : espacio entre pantalla y grid. Importante restarle el GUT */
+  /* GUTGRID : espacio entre cols */
+  /* PADGUT ES LA SUMA DE PAD Y GUT */
+  /* SIZEGRID : TAMAÑO TOTAL DEL GRID ( 100vw - el pad grid ) */
+
+  --padgut: calc(var(--gutgrid) + var(--padgrid));
+  --padgut-s: calc(var(--gutgrid) + var(--padgrid-s));
+  --sizegrid: calc(100vw - ((var(--padgrid)) * 2));
+
+  @mixin isPc {
+    --gutgrid: .8rem;
+    --padgrid: 2.4rem;
+  }
+
+  @mixin isResp {
+    --padgrid: #{respFix(24,14)};
+    --padgrid-s: #{respFix(24,14)};
+    --gutgrid: #{respFix(8,4)};
+  }
+
+  /* RESP HORIZONTAL */
+  @mixin isTabletLD {
+    --padgrid: #{respFix(24,14)};
+    --padgrid-s: #{respFix(24,14)};
+    --gutgrid: #{respFix(8,4)};
+  }
+
+  @mixin isMobileLD {
+    --padgrid: #{ratioFixMobileLS(100)};
+    --gutgrid: 4px;
+  }
+
+
+  /* RESP VERTICAL */
+  @mixin isRespPT {
+    --padgrid: #{respFix(24,14)};
+    --gutgrid: #{respFix(8,4)};
+  }
+}
+
+/* 💡💡💡💡 TIPOS DE GRID */
+/* .gridcl para uso de cols */
+/* .grid si no queremos usar ningún col, pero queremos tener el tamaño del grid */
+/* Diferencia entre ellos es el cálculo, de si se le quita o se le pone el gut */
+
+/* 2 variaciones */
+/* sin nada. Tiene un max-width reduciendo espaciado lateral ) */
+/* -vw para rellenar la pantalla entera ( 100% con padding ) */
+
+.gridcl-vw {
+  width: 100%;
+  padding-left: var(--padgrid);
+  padding-right: var(--padgrid);
+}
+
+.c-vw {
+  margin: 0 auto;
+  width: 100%;
+  padding-left: $pgrid;
+  padding-right: $pgrid;
+  /* @mixin MediaMin(2350){
+    max-width:2350px;
+    @mixin MediaMin(1920){
+      max-width: 210vh;
+    } 
+  } */
+}
+
+/* SIZEGRID : TAMAÑO TOTAL DEL GRID ( 100vw - el pad grid - el gut, que no lo añadimos ) */
+
+.gridcl {
+  width: 100%;
+  max-width: var(--sizegrid);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cl {
+  padding-left: var(--gutgrid);
+  padding-right: var(--gutgrid);
+
+}
+
+@for $i from 1 to 12 {
+  .cl$(i) {
+    padding-left: var(--gutgrid);
+    padding-right: var(--gutgrid);
+    width: calc(var(--sizegrid) * ($(
+          i)/ 12)
+    );
+
+  }
+}
+
+/* POR SI QUEREMOS QUE MANTENGA EL TAMAÑO DEL GRID, PERO NO QUEREMOS COLUMNAS */
+.grid-vw {
+  width: 100%;
+  padding-left: var(--padgut);
+  padding-right: var(--padgut);
+  /* max-width: 144rem; */
+  /* margin:0 auto; */
+}
+
+.grid-vw-s {
+  width: 100%;
+  padding-left: var(--padgut-s);
+  padding-right: var(--padgut-s);
+}
+
+.grid {
+  --sizegrid: calc(100vw - ((var(--padgut)) * 2));
+  
+  width: 100%;
+  max-width: var(--sizegrid);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 💡 Grid base para diseño */
+.CKgrid {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  opacity: .1;
+  max-height: 0;
+  pointer-events: none;
+  z-index: 999;
+  transition: 2s max-height $swiftOut;
+
+  .gridcl {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto;
+
+    div {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: cyan;
+        transform: scaleX(0);
+        transition: .4s transform $swiftOut;
+      }
+    }
+  }
+
+  &.A {
+    div {
+      &::before {
+        transform: scaleX(1);
+        transition: 1s transform .1s $swiftOut;
+      }
+    }
+  }
+}

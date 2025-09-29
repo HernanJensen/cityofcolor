@@ -1,0 +1,20 @@
+
+  // TEST RESP MEDIA en viewManager
+  - $predev = 'https://csskiller.es'
+
+  .grid
+    h2.h1(style="padding-top:150lvh") Video CLICK
+    p Dos URLs, play, pause, click,prog
+    // ✅ 
+    +vidclick(
+      [
+        'ass'=> $vidclickposter_css,
+        'res'=>$res,'predev'=>$predev,
+        'click'=>true,
+        'play'=>true,
+        'mute'=>true,
+        'prog'=>true,
+        'controls'=>false,
+        'xx'=>'none'
+      ]
+    )

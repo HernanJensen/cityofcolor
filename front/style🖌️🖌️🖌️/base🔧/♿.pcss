@@ -1,0 +1,84 @@
+
+.VHID { 
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(0px 0px 99.9% 99.9%); /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+}
+
+/* 
+
+.scr_read{
+
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
+  
+} */
+
+
+/* FUTUROS TABS con details summary
+https://codepen.io/chriscoyier/pen/XWNqxyY */
+
+
+details{
+  overflow:hidden;
+  position: relative;
+  summary{
+    
+    &::-webkit-details-marker {
+      display:none;
+    }
+  }
+  .detX{
+    
+    &_hold{
+      display: grid;
+      grid-template-rows: 0fr;
+      transition:   .45s grid-template-rows $swiftOut;
+
+    }
+    &_box{
+
+      overflow: hidden;
+      opacity:0;
+      transition: .6s opacity $swiftOut;
+    }
+  }
+  &.act{
+    .detX{
+      &_click{
+        &_i{
+          transform:scaleY(-1);
+        }
+      }
+      &_hold{
+        grid-template-rows: 1fr;
+        transition:  .45s grid-template-rows $swiftOut;
+      }
+      &_box{
+        opacity:1;
+        transition: .6s opacity .45s $swiftOut;
+      }
+    }
+
+  }
+
+}
+

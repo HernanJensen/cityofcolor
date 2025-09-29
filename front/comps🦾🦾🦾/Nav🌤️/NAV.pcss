@@ -1,0 +1,31 @@
+.nav {
+  &_head{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding-top:2rem;
+    padding-bottom:2rem;
+  }
+    &_logo {
+      width: 10rem;
+      display:flex;
+      
+      svg{
+        width:100%;
+
+      }
+    }
+
+    &_ops{
+      right:$padgut;
+      @mixin centerY;
+
+    }
+}

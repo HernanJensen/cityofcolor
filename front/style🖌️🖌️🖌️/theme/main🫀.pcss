@@ -1,0 +1,208 @@
+
+  /* $remfix:-5;
+  $remfix:0; */
+  /* $remfix:5; */
+
+html{
+  
+  
+  --mobileMax:$PTMax;
+  --touch:$touch;
+
+  /* 💡
+
+  El remfix funciona por porcentaje.
+  Por ejemplo, si 
+  remfix : -5
+
+  si un elmento de 100px, al doble de desktop resolution, que tendría que ser 200px, 
+  solo aumentará la mitad. 100px -> 150px
+  Si fuera -5 100px -> 150px ( Reduce )
+  Si fuera 0 100px -> 200px ( Nada )
+  Si fuera 5 100px -> 250px ( Aumenta, cosa muuuuy rara )
+
+  Ejemplo : 
+  De normal ( quitando el multi ), en desktop ( 1440 ), 20rem -> 200px, y al doble ( 2880 ) sería 400px, 
+  con el multi a la mitad, el aumento sería de la mitad, 300px */
+
+
+  
+  @mixin isPc{
+    --padgrid : 4rem;
+   
+    --multi:calc(((100vw - $desktopPX) / $desktop * $remfix));
+    font-size: 
+    min(
+      calc(((100vw / $desktop) *  10  ) + var(--multi)),
+      1.25vh
+    );
+    /* font-size: calc(((100vw / $desktop) *  10  )); */
+
+
+  }
+  @mixin isResp{
+    /* 💡 Esto comentado sería el rem como siempre hacemos */
+    /* font-size: calc(((#{$mobile}px / #{$mobile}) *  10  )); */
+    
+    /* 💡 Con este cálculo, se estima que el tamaño de resp, 
+    sea el mismo tamaño en todas las resoluciones a partir de 1194
+    EJEMPLO : 100px en desktop ( 10 rem ), de 1440 a 1194 acabaría yendo de 100 a 91.4931
+    🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️🤷‍♂️ */
+
+    /* font-size: calc(((#{$mobile}px / #{$mobile}) *  9.14931  )); */
+    /*  Rem fijo, 1rem, 10px */
+    font-size: 10px;
+    
+
+
+  }
+
+
+  main{
+    min-height: 100dvh;
+  }
+
+
+
+
+  &:not(.dev){
+    .IO{
+      background:transparent!important;
+    }
+  }
+}
+
+.IO{
+  pointer-events: none;
+}
+
+.VIU {
+  position: relative;
+  width: 100%;
+}
+
+/* DESIGN HELP */
+
+.checkfix{
+  position:fixed;
+  right:0;
+  bottom:0%;
+  z-index:1000;
+  background:#333;
+  color:white;
+  font-size: 10px;
+  letter-spacing: .05em;
+  font-family: monospace;
+  padding:.4rem;
+  text-align: right;
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  text-transform: uppercase;
+  transition:.6s opacity $swiftOut;
+  opacity:.2;
+
+  pointer-events: none;
+
+  
+
+  /* display:none; */
+  &_t{
+    line-height: 12px;
+  }
+  &_c{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    width: 100%;
+    position: relative;
+    &::before{
+      content:'';
+      position: absolute;
+      left:-.2rem;
+      bottom:-.2rem;
+      top:-.2rem;
+      width: 25px;
+    }
+    input{
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      background:white;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      pointer-events: all;
+      margin-left:4px;
+      /* transform: translateY(-10%); */
+      transition: .6s border-color $swiftOut;
+      &::before{
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: black;
+        border-radius: 2px;
+        opacity: 0;
+        transform: scale(0);
+        transition: .6s opacity $swiftOut, .6s transform $swiftOut;
+      }
+      &:checked{
+        &::before{
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+    label{
+      margin-left:4px;
+    }
+
+    & + .checkfix_c{
+      margin-top:2px;
+    }
+  }
+
+  &:hover{
+    opacity:1;
+  }
+
+
+  
+}
+
+svg{
+  width: 100%;
+}
+
+/* GL */
+#gl{
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height: 100%;
+}
+
+
+/* FIXINGs SAFARI
+jode el nav?
+body{
+  transform:translateZ(0);
+} */
+
+
+
+
+.resplg{
+  @mixin isPT {
+    display:none;
+  }
+}
+
+.respsm{
+  @mixin isMain {
+    display:none;
+  }
+}

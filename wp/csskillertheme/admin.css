@@ -1,0 +1,10 @@
+.wpml-tm-post-edit-dialog{
+    display: none !important;
+
+}
+
+
+.wpml-tm-post-edit-dialog + .ui-widget-overlay.ui-front{
+    display: none !important;
+}
+

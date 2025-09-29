@@ -1,0 +1,15 @@
+{
+	"folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "wp/wp-content/themes/csskillertheme"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/wp": true,
+    }
+  },
+}

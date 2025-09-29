@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+//📺📺📺📺📺📺📺📺📺📺📺📺📺
+//Sizes design
+// $desktop:1000;
+$desktopL:2560;
+// Diseño referencia pantalla desktop
+// $desktop:1440;
+$desktop:1512;
+$desktopH:850;
+
+// Comienza modo responsive : iPad Pro (3rd gen 11")
+$touch:1194;
+
+// Diseño referencia tablet : iPad Pro (3rd gen 11")
+$tabletW:834;
+$tabletH:1194;
+
+// O-MOBILE ( aquí perdemos ya lo que sería tablet, 
+// se usa 540 para poder hacer resize fácil desde desktop sin simulador touch )
+$mobileMax:540;
+$mobileMaxH:1194;
+
+// Diseño referencia pantalla móvil : iPhone 13 mini
+$mobile:375;
+$mobileH:812;
+
+
+// 🪪🪪🪪🪪🪪🪪🪪🪪🪪🪪🪪🪪
+
+
+$remfix : .2;
+
+// Grid control
+
+$padgrid:var(--padgrid);
+$sizegrid:var(--sizegrid);
+$gutgrid:var(--gutgrid);
+$padgut:var(--padgut);
+
+
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈
+
+$bg:#1F1F1F;
+
+$dark: #000;
+$light: #ffffff;
+
+$light-m: #E7D9CA;
+
+$light-tx: #C5C5C7;
+$dark-tx: #8E8E8E;
+
+$gray:#ccc;
+$grayt:#969696;
+$grayx:#8E8E8E;
+
+$lbl:#969696;
+$error:#FF303C;
+$valid:#49D69D;
+
+//Eases
+$easeOut: cubic-bezier(.43,.39,.23,1.01);
+$swiftOut: cubic-bezier(.55,0,.1,1);
+$inOut : cubic-bezier(.785,.135,.15,.86);
+
+$easeOutn: cubic-bezier(0.19, 1, 0.22, 1);
+$bounce: cubic-bezier(.63,.35,.4,1.10);
+
+$smooth: cubic-bezier(0.2, 0.7, 0.4, 1.65);
+
+
+
+// ADD VARS
+html{
+
+  --mainC:#0F4223;
+  
+  --mobileMax:#{$mobileMax}px;
+  --touch:#{$touch}px;
+  // color:#{mainC};
+}

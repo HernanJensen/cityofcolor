@@ -1,0 +1,106 @@
+section.guide_resp.grid
+  // TEST RESP MEDIA en viewManager
+  - $predev = 'https://csskiller.es'
+  - $res = 0
+  h2.h1 RESP MEDIAS
+
+
+  h2.h1 Videos YES Resp. WT.
+  p Comportamiento : Dos SRC 
+  // ✅ Todo carga en su debida resolución, no carga los dos, solo srcSM y srcLG
+  +media(
+    [
+      'ass'=> $vid_css,
+      'lazy'=>0,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+  h2.h1(style="margin-top:200lvh") Videos YES Resp. Lazy.
+  p Comportamiento : Dos SRC
+  // ✅ Todo carga en su debida resolución, no carga los dos, solo srcSM y srcLG
+  +media(
+    [
+      'ass'=> $vid_css,
+      'lazy'=>1,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+  h2.h1(style="margin-top:100lvh") IMG Resp. WT.
+  p Comportamiento : Dos SRC 
+  // ✅ Todo carga en su debida resolución, no carga los dos, picture con 2 sources. 0 JS
+  +media(
+    [
+      'ass'=> $im_css,
+      'lazy'=>0,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+
+  h2.h1(style="margin-top:100lvh") IMG Resp. Lazy.
+  p Comportamiento : Dos SRC 
+  // ✅ Todo carga en su debida resolución, no carga los dos, picture con 2 sources. 0 JS
+  +media(
+    [
+      'ass'=> $im_css,
+      'lazy'=>1,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+
+  h2.h1(style="margin-top:100lvh") IMG-VID. Lazy.
+  p Comportamiento : Dos SRC 
+  // ✅  
+  +media(
+    [
+      'ass'=> $imvid_css,
+      'lazy'=>1,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+
+
+  h2.h1(style="margin-top:100lvh") IMG-VID. WT.
+  p Comportamiento : Dos SRC 
+  // ✅  
+  +media(
+    [
+      'ass'=> $imvid_css,
+      'lazy'=>0,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+
+
+  h2.h1(style="margin-top:100lvh") VID-IMG. Lazy.
+  p Comportamiento : Dos SRC 
+  // ✅  
+  +media(
+    [
+      'ass'=> $imvid_css,
+      'lazy'=>1,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+  h2.h1(style="margin-top:100lvh") VID-IMG. WT.
+  p Comportamiento : Dos SRC 
+  // ✅  
+  +media(
+    [
+      'ass'=> $imvid_css,
+      'lazy'=>0,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )

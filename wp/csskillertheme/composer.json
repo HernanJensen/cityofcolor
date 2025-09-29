@@ -1,0 +1,21 @@
+{
+  "name": "hernanjensen/cssktest",
+  "authors": [
+    {
+      "name": "Csskiller",
+      "email": "angelperezpedrosa@gmail.com"
+    },
+    {
+      "name": "Hernan Jensen",
+      "email": "hernanjensenchristensen@gmail.com"
+    }
+  ],
+  "require": {
+    "adhocore/env": "^0.1.0",
+    "phug/phug": "^1.12",
+    "js-phpize/js-phpize-phug": "^2.2",
+    "phpmailer/phpmailer": "^6.9",
+    "php-ffmpeg/php-ffmpeg": "^1.2",
+    "drewm/mailchimp-api": "^2.5"
+  }
+}

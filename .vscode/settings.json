@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.pcss": "postcss"
+  },
+  "editor.formatOnSave": true,
+  "css.validate": false
+}

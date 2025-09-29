@@ -1,0 +1,19 @@
+{
+    "name": "custom/imageresp",
+    "title": "Image Responsive",
+    "description": "Image Responsive",
+    "category": "media",
+    "icon": "format-image",
+    "keywords": ["image"],
+    "attributes": {
+      "name": {
+          "type": "string"
+      }
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

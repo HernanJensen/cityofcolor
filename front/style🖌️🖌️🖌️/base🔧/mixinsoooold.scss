@@ -1,0 +1,376 @@
+@mixin w-min($size){
+  @media (width < #{$size}px){
+    @content;
+  }
+}
+
+@mixin w-max($size){
+  @media (width >= #{$size}px){
+    @content;
+  }
+}
+@mixin w-range($max,$min){
+  @media (#{$max}px <= width <= #{$min}px){
+    @content;
+  }
+}
+
+
+@mixin h-min($size) {
+  @media (max-height: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin h-max($size) {
+  @media (min-height: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin h-range($max,$min){
+  @media (#{$max}px <= height <= #{$min}px){
+    @content;
+  }
+}
+
+
+// GUÍA
+// TAMAÑOS     ====  L ( grande ) y S ( pequeño )
+// ORIENTACIÓN ==== LD ( LANDSCAPE ) y PT ( PORTRAIT )
+// CONDICIONAL ==== o- ( only ) no- ( todo lo que no sea )
+
+// REFERENCIAS TAMAÑOS
+// https://www.ios-resolution.com/
+
+// SCREENS
+// PC - DESKTOP 🖥️
+// PC grande
+// Desde 1440 para arriba
+@mixin o-pc-L {
+  @media (width > #{$desktop}px){
+      @content;
+  }
+
+}
+
+// pc-S 
+// Solo para pantallas entre el touch ( 1194 ) y tamaño de diseño ( 1440 )
+@mixin o-pc-S {
+  @media ( #{$touch}px < width <= #{$desktop}px ){
+      @content;
+  }
+}
+
+// pc
+// Alberga Todo pc
+@mixin o-pc {
+  @media (width > #{$touch}px){
+      @content;
+  }
+}
+
+// MODO RESP ( A partir de 1194, que sería un iPad Pro (3rd gen 11") que ya es grande de cojones )
+@mixin o-resp {
+  @media ( width <= #{$touch}px){
+    @content;
+
+  }
+}
+
+// PC && RESP landscape
+@mixin o-pc-tabletLD {
+  @media ((min-aspect-ratio: 1.2) and (width <= #{$touch}px)) or (width > #{$touch}px){
+  @content;
+
+  }
+}
+
+
+// RESP landscape
+@mixin o-resp-LD {
+  @media (min-aspect-ratio: 1.2) and (width <= #{$touch}px){
+  @content;
+
+  }
+}
+
+// RESP Portrait
+@mixin o-resp-PT {
+  @media (max-aspect-ratio: 1.2) and (width <= #{$touch}px){
+  @content;
+
+  }
+}
+
+
+// TABLET 
+//🚫 El no-tablet es una gilipollez, para eso usar el o-desktop, porque es raro que algo solo sea para desktop y móvil, 
+//si pasa, o-pc y o-mobile
+
+
+// Tamaño comprendido entre touch(1194) y mobileMax(540)
+@mixin o-tablet {
+  @media (#{$mobileMax}px < width <= #{$touch}px){
+    @content;
+  }
+}
+
+// TABLET Portrait
+@mixin o-tablet-PT {
+
+  @media (#{$mobileMax}px < width <= #{$touch}px)  and (max-aspect-ratio: 1.2){
+    @content;
+  }
+}
+
+// TABLET Landscape
+@mixin o-tablet-LD {
+  @media (#{$mobileMax}px < width <= #{$touch}px) and (min-aspect-ratio: 1.2){
+    @content;
+  }
+}
+
+// MOBILE
+
+// NO MOBILE, todo por encima de touch( 540 )
+@mixin no-mobile {
+  @media (#{$mobileMax}px < width ) {
+    @content;
+  }
+}
+
+// NO MOBILE, todo con ancho desde de touch( 540 ) para abajo
+@mixin o-mobile {
+  @media (#{$mobileMax}px >= width ) {
+    @content;
+  }
+}
+
+// MOBILE Landscape, todo con alto desde de touch( 540 ) para abajo
+@mixin o-mobile-PT {
+  @media (#{$mobileMax}px >= width ) and (max-aspect-ratio: 1.2){
+    @content;
+  }
+}
+@mixin o-mobile-LD {
+  @media (#{$mobileMax}px >= height ) and (#{$mobileMaxH}px >= width )  and (min-aspect-ratio: 1.2){
+    @content;
+  }
+}
+
+// BASES DE ORIENTACIóN
+@mixin o-LD {
+  @media (orientation: landscape){
+    @content;
+  }
+}
+
+@mixin o-PT {
+  @media (orientation: portrait){
+    @content;
+  }
+}
+
+
+// SIZES
+//💡 Hace que, a partir de touch ( 1194 ), continue con la reducción del rem de desktop (1440 )
+// y a través de una regla de 3, se pueda llegar a un valor mínimo hasta mobile ( 375 )
+// Ejemplo a ojo : un texto que está a 100px(10rem) a 1440, hasta llegar a 1195, bajaría hasta 91px,
+// y si le ponemos resp(100,40), al principio de touch ( 1194 ), tendrá el valor final de desktop, y bajaría
+// gradualmenete hast 40px 
+//💬 Se utiliza solo en la query Resp o dispositivos
+
+
+@function resp($big,$small){
+
+
+  @return calc(#{$small}px + (#{($big - $small) * .8292} )*(100vw - #{$mobile}px)/($touch - $mobile));
+}
+
+//💡 Igual que la de arriba, pero el valor máximo lo determinamos sin reducción. Con el ejemplo se ve fácil
+// Ej : respFix(100,40), a partir de touch (1194), sería 100px ( no 91 ), y bajaría gradualmente a 40 hasta móvil (375) 
+@function respFix($big,$small){
+
+
+  @return calc(#{$small}px + (#{($big - $small)} )*(100vw - #{$mobile}px)/($touch - $mobile));
+}
+
+//💡🚧  En pruebas, lo mismo que resp pero con la altura? 
+@function respFixH($big,$small){
+
+
+  @return calc(#{$small}px + (#{($big - $small)} )*(100lvh - #{$mobileH}px)/($tabletH - $mobileH));
+
+}
+
+
+@function respFixMulti($size,$multi){
+
+
+  @return calc(#{$size}px + (#{(($size * $multi) - $size)} )*(100vw - #{$mobile}px)/($touch - $mobile));
+}
+
+
+
+//💡🚧  En pruebas, calcula a través del ratio de pantalla móvil horizontal, 
+@function ratioFixMobileLS($size){
+  // El size que le dé tiene que ser con el móvil en horizontal
+
+  // @return calc( #{$size}px * ( 2 - ( (100vw - 100vh) / (#{$mobileH - $mobile}px ) ) ) );
+  @return calc( ( ( #{$size} ) * (  ( (100vw - 100lvh) / ( #{$mobileH - $mobile} ) ) ) ) );
+  // @return calc(  100vw / 100lvh  );
+
+}
+
+//💡 Tamaño en vw de un valor en px en desktop (1440).
+// Ejemplo: si hago vW(1440), nos da 100vw 
+@function vW($size) {
+	@return #{round(math.div(($size * 100),$desktop),6)}vw;
+}
+// Igual que arriba pero para móvil
+@function vWresp($size) {
+	@return #{round(math.div(($size * 100),$desktop),6)}vw;
+}
+
+//💡 Tamaño en vh de un valor en px en desktop height (800).
+// Ejemplo: si hago vH(800), nos da 100vh 
+@function vH($size) {
+	@return #{round(math.div(($size * 100),$desktopH),6)}vh;
+}
+
+// igual que arriba pero para móvil
+@function vHresp($size) {
+	@return #{round(math.div(($size * 100),$mobileH),6)}lvh;
+}
+
+
+// CALCS
+@function colGrid($col){
+
+  @return calc((var(--sizegrid) * ( $col / 12) - (var(--gutgrid) * 2)));
+}
+
+
+@function round($value, $fractionDigits: 0) {
+  $power: math.pow(10, $fractionDigits);
+  @return math.div(math.round($power * $value), $power);
+}
+
+@function colSize($col) {
+	@return calc(math.div(($col * 100%),12));
+}
+
+
+@function lH($s,$l) {
+	@return round(math.div($l,$s),3);
+}
+
+
+
+
+// HOVER
+@mixin hover{
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin nohover{
+	@media (hover: none) {
+	  @content;
+	}
+}
+
+@mixin clock() {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+}
+
+@mixin center--x() {
+	position: absolute;
+  left: 50%;
+  transform:translateX(-50%);
+}
+@mixin center--y() {
+	position: absolute;
+  top: 50%;
+  transform:translateY(-50%);
+}
+
+@mixin imgCover{
+  position:absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:is(h1, h2, h3, h4, h5, h6, h7) {
+    @extend %headings !optional;
+}
+
+
+
+
+
+
+
+
+
+
+// FONTS
+
+
+@mixin importFont($fontname, $filename, $weight, $style: normal) {
+  @font-face {
+    font-family: $fontname; // IE9 Compat Modes
+    font-display: swap;
+    src: url('~assets/fonts/#{$filename}.ttf') format('truetype'); // Safari, Android, iOS
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin importFontTtf($fontname, $filename, $weight, $style: normal) {
+  @font-face {
+    font-family: $fontname; // IE9 Compat Modes
+    font-display: swap;
+    src: url('~assets/fonts/#{$filename}.ttf') format('truetype'); // Safari, Android, iOS
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin importFontWoff2($fontname, $filename, $weight, $style: normal) {
+  @font-face {
+    font-family: $fontname; // IE9 Compat Modes
+    font-display: swap;
+    src: url('~assets/fonts/#{$filename}.woff2') format('woff2'); // Safari, Android, iOS
+    font-weight: $weight;
+    font-style: $style;
+
+    // font-display: optional;
+  }
+}
+
+@mixin importFontVar($fontname, $filename) {
+  @font-face {
+    font-family: $fontname; // IE9 Compat Modes
+    font-display: swap;
+    src: url('~assets/fonts/#{$filename}.ttf') format('truetype-variations'); // Safari, Android, iOS
+
+  }
+}
+

@@ -1,0 +1,11 @@
+include ./mixins.pug
+
+nav.nav
+  .nav_head.grid-vw
+    a.nav_logo(href=$ops['base'])
+      +icon('CSSK')
+    .nav_ops
+      a.nav_ops_el(href=$ops['legal']['url'])
+        span!=$ops['legal']['title']
+
+

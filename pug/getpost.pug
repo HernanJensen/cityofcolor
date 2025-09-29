@@ -1,0 +1,23 @@
+include ./basic/mixins.pug
+
+
+
+if $posts
+  //- - $array = $posts
+  //- - $rows = ceil(count($array)/ 3);
+  //- - $rows = count($array);
+  //- - $length = count($array) < 5 ? "wrap" : '';
+
+  each $a, $key in $posts
+    a.Apost(href=$a['url'])
+      +media(
+            [
+        'ass'=> $a['image'],
+        'lazy'=>1,
+        'res'=>$res,'predev'=>$predev,
+        'auto'=>'yes'
+        ]
+      )
+      h4!=$a['title']
+else 
+  .tx No posts found

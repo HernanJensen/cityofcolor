@@ -1,0 +1,28 @@
+include ./basic/mixins.pug
+main.page(data-skin="legal")
+  section.CMP.page_intro(data-cmp="intro")
+    .grid-vw
+      h1.ttj!=$post_title
+      - $content = ""
+      if $blocks
+        each $block in $blocks
+          if $block['layout'] === "imageresp"
+            - $content = $content.'<div class="im" style="--arw:'.$block['content']['image']['image']['w'].'; --arh:'.$block['content']['image']['image']['h'].';"><div class="IO" data-cls="lazy"></div><img data-lazy="'.$block['content']['image']['image']['img'].'" alt="'.$block['content']['image']['image']['alt'].'" width="'.$block['content']['image']['image']['w'].'" height="'.$block['content']['image']['image']['h'].'"></div>'
+          else if $block['layout'] === "videoresp"
+            - $arw = ''
+            - $arh = ''
+            if $block['content']['video']['w'] && $block['content']['video']['h']
+              - $arw = $block['content']['video']['w']
+              - $arh = $block['content']['video']['h']
+            - $content = $content.'<div class="im" style="--arw:'.$arw.'; --arh:'.$arh.';"><video data-src="'.$block['content']['video']['url'].'" alt="'.$block['content']['video']['poster']['image']['alt'].'" width="'.$block['content']['video']['w'].'" height="'.$block['content']['video']['h'].'" controls poster="'.$block['content']['video']['poster']['image']['img'].'"></div>'
+          else
+            - $content = $content.$block['content']
+      
+        .wysi!= $content
+ 
+
+
+
+
+
+  +footer

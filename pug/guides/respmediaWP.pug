@@ -1,0 +1,210 @@
+section.guide_resp.grid
+  //- +media(
+  //-         [
+  //-     'ass'=> $iresp_0,
+  //-     'lazy'=>0,
+  //-     'res'=>$res,'predev'=>$predev,
+  //-     'auto'=>'true',
+  //-     'class'=>'churro'
+  //-     ]
+  //- )
+  //- +media(
+  //-       [
+  //-   'ass'=> $iresp_0,
+  //-   'lazy'=>1,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+  //- +media(
+  //-       [
+  //-   'ass'=> $img_0,
+  //-   'lazy'=>1,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+  
+
+  h2.h1 Videos YES Resp. WT y Lazy.
+  p Comportamiento : Dos SRC 
+  +media(
+        [
+      'ass'=> $imvid_0,
+      'lazy'=>1,
+      'res'=>$res,'predev'=>$predev,
+      'auto'=>'yes'
+    ]
+  )
+  +media(
+        [
+    'ass'=> $imvid_0,
+    'lazy'=>1,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'yes'
+    ]
+  )
+
+  h2.h1 Videos NO resp WT y Lazy.
+  p Comportamiento : Dos SRC 
+  +media(
+        [
+    'ass'=> $imvid_0,
+    'lazy'=>0,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  +media(
+        [
+    'ass'=> $imvid_0,
+    'lazy'=>1,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 IMG WT y Lazy.
+  p Comportamiento : Dos SRC 
+  +media(
+        [
+    'ass'=> $iresp_0,
+    'lazy'=>0,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 IMG Lazy.
+  +media(
+        [
+    'ass'=> $iresp_0,
+    'lazy'=>1,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 IMG VIDEO RESP WT
+  +media(
+        [
+    'ass'=> $imvide_0,
+    'lazy'=>0,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 IMG VIDEO RESP Lazy
+  +media(
+        [
+    'ass'=> $imvide_0,
+    'lazy'=>1,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 VIDEO/IMG RESP WT
+  +media(
+        [
+    'ass'=> $imvidd_0,
+    'lazy'=>0,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  h2.h1 VIDEO/IMG RESP Lazy
+  +media(
+        [
+    'ass'=> $imvidd_0,
+    'lazy'=>1,
+    'res'=>$res,'predev'=>$predev,
+    'auto'=>'no'
+    ]
+  )
+  //- h2.h1 Videos RESP WT ( video file y vacio)
+  //- p Comportamiento : Solo un SRC, todo hecho
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidb_0,
+  //-   'lazy'=>0,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+  //- h2.h1 Videos RESP Lazy ( video file y vacio)
+  //- p Comportamiento : Solo un SRC, todo hecho
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidb_0,
+  //-   'lazy'=>1,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+
+
+  //- h2.h1 Videos RESP WT ( video URL y vacio)
+  //- p Comportamiento : Solo un SRC, todo hecho
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidc_0,
+  //-   'lazy'=>0,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+  //- h2.h1 Videos RESP Lazy ( video URL y vacio) A
+  //- p Comportamiento : Solo un SRC, todo hecho
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidc_0,
+  //-   'lazy'=>1,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+  //- h2.h1 Video-img RESP WT ( video SRC y img xs)
+  //- p Comportamiento : Muestra un elemento en cada resolución
+  //- //- each $a in [1,2,3,4,1,2,3,4]
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidd_0,
+  //-   'lazy'=>0,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true',
+  //-   ]
+  //- )
+
+  //- h2.h1 Video-img Lazy ( video SRC y img xs)
+  //- p Comportamiento : Muestra un elemento en cada resolución
+  //- //- each $a in [1,2,3,4,1,2,3,4]
+  //- +media(
+  //-       [
+  //-   'ass'=> $imvidd_0,
+  //-   'lazy'=>1,
+  //-   'res'=>$res,'predev'=>$predev,
+  //-   'auto'=>'true'
+  //-   ]
+  //- )
+
+  //- h2.h1 img-vid RESP WT ESTAMOS AQUI
+  //- p Comportamiento : Muestra un elemento en cada resolución
+  //- //- each $a in [1,2,3,4,1,2,3,4]
+  //- +media(
+  //-     [
+  //- 'ass'=> $imvide_0,
+  //- 'lazy'=>0,
+  //- 'res'=>$res,'predev'=>$predev,
+  //- 'auto'=>'true',
+
+  //- ]
+  //- )
+
+  //- h2.h1 Video-img Lazy
+  //- p Comportamiento : Muestra un elemento en cada resolución
+  //- //- each $a in [1,2,3,4,1,2,3,4]
+  //- +media(
+  //-     [
+  //- 'ass'=> $imvide_0,
+  //- 'lazy'=>1,
+  //- 'res'=>$res,'predev'=>$predev,
+  //- 'auto'=>'true'
+  //- ]
+  //- )

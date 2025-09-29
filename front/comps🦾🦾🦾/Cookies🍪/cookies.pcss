@@ -1,0 +1,686 @@
+.cook{
+
+  // ALERT
+  &lrt{
+
+
+    pointer-events: all;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    z-index:100;
+
+    background-color: #304143;
+    transform:translateY(100%);
+
+    @mixin o-main{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding:4rem 4rem;
+    }
+
+
+    @mixin o-resp-PT{
+
+    }
+
+    &_l{
+  
+      p{
+
+        line-height: lH(14,20);
+        font-weight: 500;
+        font-size: 1.4rem;
+
+        color: rgba(248, 246, 244, 0.6);
+      }
+
+      a{
+        text-decoration: underline;
+      }
+
+    }
+
+    &_r{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      gap:0 2rem;
+      
+      .aBtn{
+
+
+
+        &-d{
+          --bg:#{$dark};
+          --tx:#{$txlight};
+
+          --bgH:#{$dark};
+          --txH:#{$txlight};
+          border:1px solid #5A7D81;
+
+        }
+        &-n{
+
+          --bg:#{$txlight};
+          --tx:#{$dark};
+
+          --bgH:#{$txlight};
+          --txH:#{$dark};
+        }
+
+      }
+
+    }
+
+}
+
+
+
+
+
+  // PANEL
+  &pnl{
+    
+
+    // width: 100vw;
+    // max-width:100vw;
+    // max-height:100svh;
+    // height:100svh;
+    padding: 0;
+    border: none !important;
+    // position:fixed;
+    // top:0;
+    // left:0;
+
+    background-color: transparent;
+
+    z-index:120;
+    opacity:0;
+    display:flex;
+
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    max-width:100vw;
+    max-height:100svh;
+
+    &::backdrop{
+      // display:none;
+      background-color: transparent;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display:none;
+
+
+    }
+
+    &:not([open]){
+      display:none;
+      
+    }
+
+    &[open]{
+      &::backdrop{
+        display:block;
+      }
+    }
+
+    &::before{
+      content:'';
+      background: #D6D6D6BF;
+      @mixin clock;
+
+      opacity:.75;
+      backdrop-filter: blur(4px);
+    }
+
+
+
+
+    &[open]{
+
+    }
+
+      &_h{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        max-width: 60.4rem;
+        width: calc(100% - 40px);
+        height:min(calc(90svh),100svh - 12.8rem);
+        // top:max(64px,5vh);
+        // bottom:max(64px,5vh);
+
+
+
+
+        background-color: #F7F4F1;
+        border:1px solid #E6E1DC;
+        border-radius: 12px;
+        overflow:clip;
+
+        @mixin o-main{
+          padding:11.4rem 0 4rem;
+        }
+        @mixin o-resp-PT{
+          padding:11.4rem 0 resp(40,20);
+
+        }
+
+        //logo
+        &_logo{
+          position:absolute;
+
+           @mixin o-main{
+            left:4rem;
+            top:4.4rem;
+            width: 4.8rem;
+
+          }
+          @mixin o-resp-PT{
+            width: 5.6rem;
+            left:resp(40,20);
+            top:resp(40,20);
+
+          }
+
+
+        }
+      }
+      //CLOSE
+      &_c{
+        width: 5.6rem;
+        aspect-ratio: 1;
+
+        background-color: $bg;
+        border-radius: 50%;
+        border:1px solid $greenborder;
+        
+        position:absolute;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        
+        --scx0:0;
+        --scx1:0;
+        
+        @mixin o-main{
+          right:4rem;
+          top:4rem;
+        }
+        @mixin o-resp-PT{
+          right:resp(40,20);
+          top:resp(40,20);
+
+        }
+        span{
+          display: block;
+          height: 2px;
+          width: 2rem;
+          background-color: $dark;
+
+          left:50%;
+          top:50%;
+          position: absolute;
+          &:first-child{
+            transform:translate(-50%,-50%) rotate(45deg) scaleX(var(--scx0));
+          }
+          &:last-child{
+            transform:translate(-50%,-50%) rotate(-45deg) scaleX(var(--scx1));
+
+          }
+
+        }
+      }
+      // SCROLL
+
+      &_sll{
+
+        width: 100%;
+        max-height: 100%;
+        // overflow:scroll;
+
+        
+        display:flex;
+        flex-direction: column;
+        align-items:stretch;
+        justify-content:flex-start;
+
+      
+      }
+
+      &_tp{
+        display:flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        position: relative;
+
+        @mixin o-main{
+          margin: 0 4rem;
+        }
+        &::before{
+          content:'';
+          height:1px;
+          background-color: #304143;
+          left:0;
+          bottom:0;
+          position: absolute;
+          width: 50%;
+          transition:.4s transform $swiftOut;
+        }
+        &_sel{
+          width:100%;
+          position:relative;
+
+          padding:1.6rem 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition:.4s opacity $swiftOut;
+          text-align: center;
+          color:#304143;
+          
+          @mixin o-mobile{
+
+          font-size: 1.6rem;
+          }
+          @mixin no-mobile{
+
+          font-size: 1.2rem;
+          }
+
+          input{
+
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+          }
+
+          label{
+
+          }
+
+          &:has(input:checked){
+            // background-color: blue;
+            opacity:.5;
+            pointer-events: none;
+            *{
+            pointer-events: none;
+
+            }
+          }
+
+        }
+
+        &:has(.cookpnl_tp_sel:last-child input:checked){
+          &::before{
+            transform:translateX(100%);
+          }
+        }
+      }
+
+      &_bp{
+        flex-grow:1;
+        
+        // overflow:scroll;
+        position: relative;
+        overflow:clip;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+
+        &_el{
+
+          background-color: #F7F4F1;
+          
+          grid-area: 1/1;
+          contain: size;
+
+          overflow:scroll;
+
+          transition:.4s opacity .4s $swiftOut;
+
+          padding-top: 3.2rem;
+          padding-bottom: 4rem;
+        
+
+          // p{
+          //   font-size:330px;
+          // }
+
+          
+        }
+
+      }
+
+      &_ctr{
+        display:flex;
+          gap:1.4rem;
+        
+        @mixin no-mobile{
+          align-items: center;
+          justify-content: flex-end;
+          padding:0 4rem;
+        }
+        @mixin o-mobile{
+          align-items: stretch;
+          justify-content: center;
+          flex-direction: column;
+          padding:0 resp(40,20);
+        }
+        .aBtn{
+
+          
+
+          &-d{
+            --bg:#{$txlight};
+            --tx:#{$dark};
+
+            --bgH:#{$txlight};
+            --txH:#{$dark};
+            border:1px solid #5A7D81;
+
+          }
+          &-n{
+            --bg:#{$dark};
+            --tx:#{$txlight};
+
+            --bgH:#{$dark};
+            --txH:#{$txlight};
+
+          }
+
+        }
+      }
+
+        
+  
+  }
+
+  // TAB
+  
+  &pnl_abt{
+
+        @mixin o-main{
+          padding-left: 4rem;
+          padding-right: 4rem;
+        }
+        @mixin o-resp-PT{
+          padding-left: resp(40,20);
+          padding-right: resp(40,20);
+
+        }
+    p{
+      // font-size: 100px;
+
+
+          color:#767676;
+          font-size: 1.6rem;
+          line-height: lH(16,24);
+
+          & + p{
+            margin-top: 1lh;
+          }
+
+          a{
+            text-decoration: underline;
+          }
+        }
+  }
+
+  &pnl_cnf{
+    // display: none;
+
+        @mixin o-main{
+          padding-left: 4rem;
+          padding-right: 4rem;
+        }
+        @mixin o-resp-PT{
+          padding-left: resp(40,20);
+          padding-right: resp(40,20);
+
+        }
+
+  }
+
+  &pnl:has(#aboutcookies:checked) {
+    .cookpnl_cnf{
+      opacity: 0;
+      transition-delay:0s;
+      pointer-events: none;
+      *{
+        pointer-events: none!important;
+
+      }
+    }
+    // .cookpnl_about{
+      // display:none;
+    // }
+  }
+  &pnl:has(#configcookies:checked) {
+    // .cookpnl_cnf{
+    //   // display:none;
+    // }
+    .cookpnl_abt{
+      transition-delay:0s;
+
+      opacity: 0;
+      pointer-events: none;
+      *{
+        pointer-events: none!important;
+
+      }
+      // display:none;
+    }
+  }
+
+  // ELS
+  &El{
+    & + .cookEl{
+      margin-top: 3.2rem;
+    }
+    &_t{
+
+      position:relative;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.6rem;
+
+      @mixin o-main{
+        // padding-right: 5.6rem;
+      }
+
+      @mixin o-resp-PT{
+
+        padding-right: 4rem;
+      }
+      &_h{
+        font-family: 'pt';
+        font-weight: 400;
+        line-height: 2.4rem;
+        color:#304143;
+        margin-top: .4rem;
+        @mixin o-pc{
+          font-size: 1.8rem;
+
+        }
+
+        @mixin o-resp{
+          font-size: 1.8rem;
+
+        }
+      }
+    }
+      //tooltip
+      &_tp{
+        color:#219653;
+        position:absolute;
+        pointer-events: none;
+        font-size: 1rem;
+        
+
+        line-height: 2.4rem;
+
+        @mixin o-main{
+          right:0;
+          bottom:0;
+
+        }
+
+        @mixin o-resp-PT{
+          top:calc(100% - .5rem);
+          left:0;
+        }
+          
+      }
+
+
+
+      &_C{
+
+        position:absolute;
+        right:0;
+        top:0;
+
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        @mixin o-main{
+          display: none;
+        }
+
+        input{
+          position: absolute;
+          inset: 0;
+          cursor: pointer;
+        }
+        svg{
+          transform:rotate(90deg);
+        }
+
+      }
+
+      //check
+      .aCook{
+        // position:absolute;
+        // bottom:0;
+
+        // @mixin o-main{
+        //   right:0;
+
+        // }
+
+        // @mixin o-resp-PT{
+        //   right:0;
+
+        // }
+      }
+      //Grid action
+      &_b{
+          color:#767676;
+          font-size: 1.6rem;
+          line-height: lH(16,24);
+      }
+
+      @mixin o-resp-PT{
+        &_h{
+
+          display: grid;
+          grid-template-rows: 0fr;
+          overflow: hidden;
+          transition: grid-template-rows .4s;
+        }
+
+        &_b{
+
+          min-height: 0;
+          transition: visibility .4s;
+          visibility: hidden;
+        }
+
+        &:has(.cookEl_C input:checked){
+          .cookEl_h{
+            grid-template-rows: 1fr;
+
+          }
+
+          .cookEl_b{
+              visibility: visible;
+          }
+        }
+
+      }
+
+      .aCook{
+
+        // position: relative;
+
+        width: 6rem;
+        height: 3.2rem;
+        border-radius: 3.2rem;
+        background-color: #EAE8E5;
+        padding: .4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input{
+          position: absolute;
+          inset: 0;
+          cursor: pointer;
+        }
+
+        &_in{
+          flex-shrink: 0;
+          aspect-ratio: 1;
+          width: 2.4rem;
+          border-radius: 50%;
+          background-color: #BDBDBD;
+          transform: translateX(-50%);
+          transition: .4s transform $swiftOut,.4s background $swiftOut;
+          pointer-events: none;
+        }
+
+        &:has(input:checked){
+          
+          .aCook{
+            &_in{
+              background-color: #304143;
+              transform: translateX(50%);
+            }
+          }
+        }
+      }
+  }
+  
+
+}
+
+html:has(dialog[open]){
+  overflow: hidden;
+
+}

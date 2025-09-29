@@ -1,0 +1,39 @@
+# Redirigir www a no-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+# Redirigir todas las solicitudes no existentes a front.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/wp-admin
+RewriteCond %{REQUEST_URI} !^/wp-json
+RewriteCond %{REQUEST_URI} !^/csskiller
+RewriteCond %{REQUEST_URI} !^/wp
+RewriteCond %{REQUEST_URI} !\.xml$
+RewriteCond %{REQUEST_URI} !\.xsl$
+RewriteRule . /front.php [L]
+
+# Redirigir la raíz a front.php
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /front.php [L]
+
+
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^en/wp-login.php /wp-login.php [QSA,L]
+RewriteRule ^es/wp-login.php /wp-login.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

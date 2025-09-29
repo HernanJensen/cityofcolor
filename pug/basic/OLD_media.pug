@@ -1,0 +1,188 @@
+mixin mediaold($data)
+  - $ass = $data['ass']
+  - $extraC = isset($data['class']) ? $data['class'] : ''
+  - $lazy = $data['lazy'] ?? 1
+  - $auto = $data['auto'] ?? 'no'
+  - $xx = isset($data['xx']) ? $data['xx'] : NULL;
+  - $enter = isset($data['enter']) ? $data['enter'] : NULL;
+  - $entersm = isset($data['entersm']) ? $data['enter'] : NULL;
+  - $controls = isset($data['controls']) ? true : false
+  - $type = isset($ass['type']) ? $ass['type'] : ''
+
+
+  - $respSM = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['sm']['url']
+  - $respLG = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['url']
+
+
+  
+  - if ($type != $ass['sm']['type'])
+    //- Si el type es distinto en LG y SM ( Le mete display none)
+    - $LGextraC = $extraC.' lgMedia'
+    - $SMextraC = $extraC.' smMedia'
+    //- LG
+    if $type == 'vid'
+      if $lazy == 0 
+        video.WT(
+          class=$LGextraC 
+          controls?=$controls 
+          data-auto=$auto 
+          data-srclg?=$respLG 
+          width=$ass['w'] 
+          height=$ass['h'] 
+          muted="true"
+          alt=$ass['alt']
+          loading="none"
+        )
+      else
+        video(
+          class=$LGextraC
+          loading="none"
+          controls?=$controls
+          data-enter?=$enter 
+          data-xx?=$xx 
+          autoplay?=$auto 
+          playsinline=true 
+          data-srclg?=$respLG  
+          data-auto?=$auto 
+          src=$ass['url'] 
+          muted="true" 
+          width=$ass['w'] 
+          height=$ass['h'] 
+          alt=$ass['alt']
+        )
+
+    else
+      if $lazy == 0
+        img.WT(
+          class=$LGextraC 
+          data-srclg=$ass['url'] 
+          width=$ass['w'] 
+          height=$ass['h'] 
+          alt=$ass['alt']
+        )
+      else
+        img(
+          class=$LGextraC 
+          data-enter?=$enter 
+          data-xx?=$xx
+          loading="lazy" 
+          src=$ass['url']
+          width=$ass['w'] 
+          height=$ass['h']
+        )
+    
+    //- SM
+    - $type = $ass['sm']['type']
+
+    if $type == 'vid'
+      if $lazy == 0 
+        video.WT(
+          class=$SMextraC 
+          controls?=$controls 
+          data-auto=$auto 
+          data-srcsm=$respSM 
+          width=$ass['sm']['w'] 
+          height=$ass['sm']['h'] 
+          muted="true"
+          alt=$ass['alt']
+        )
+      else
+        video(
+          class=$SMextraC 
+          loading="none"
+          controls?=$controls 
+          data-enter?=$enter 
+          data-entersm?=$entersm 
+          data-xx?=$xx 
+          autoplay?=$auto 
+          playsinline=true 
+          data-srcsm?=$respSM 
+          data-auto?=$auto 
+          src=$ass['sm']['url'] 
+          muted="true"
+          width=$ass['sm']['w'] 
+          height=$ass['sm']['h'] 
+          alt=$ass['alt'])
+
+    else
+      if $lazy == 0
+        img.WT(
+          class=$SMextraC 
+          data-src=$ass['sm']['url'] 
+          width=$ass['sm']['w'] 
+          height=$ass['sm']['h'] 
+          alt=$ass['alt']
+        )
+      else
+        img(
+          class=$SMextraC 
+          data-enter?=$enter 
+          data-entersm?=$entersm  
+          data-xx?=$xx 
+          loading="lazy"  
+          src=$ass['sm']['url'] 
+          width=$ass['sm']['w'] 
+          height=$ass['sm']['h']
+        )
+    
+
+  else
+    //- Si el type es igual en LG y SM, full resp.
+    if $type == 'vid'
+      if $lazy == 0
+        video.WT(
+          class=$extraC 
+          controls?=$controls 
+          data-auto=$auto 
+          data-src=$ass['url']
+          data-srcsm?=$respSM
+          data-srclg?=$respLG
+          width=$ass['w'] 
+          height=$ass['h'] 
+          muted="true" 
+          alt=$ass['alt']
+        )
+      else
+        video(
+          class=$extraC 
+          loading="none"
+          controls?=$controls 
+          data-enter?=$enter 
+          data-entersm?=$entersm 
+          data-xx?=$xx 
+          autoplay?=$auto 
+          playsinline=true 
+          data-src=$ass['url']
+          data-srcsm?=$respSM 
+          data-srclg?=$respLG
+          data-auto?=$auto 
+          src=$ass['url'] 
+          muted="true" 
+          width=$ass['w'] 
+          height=$ass['h'] 
+          alt=$ass['alt']
+        )
+    else
+      if $lazy == 0
+        img.WT(
+          class=$extraC
+          data-src=$ass['sm']['url']." 1w,".$ass['url']." 2w" 
+          style="--ratio:".$ass['w'].'/'.$ass['h'].";--ratioSM:".$ass['sm']['w'].'/'.$ass['sm']['h'].";" 
+          alt=$ass['alt'] 
+          sizes="(max-width:1023px) 1px, 2px"
+        )
+      else
+        img(
+          class=$extraC 
+          data-enter?=$enter 
+          data-entersm?=$entersm  
+          data-xx?=$xx 
+          loading="lazy"  
+          srcset=$ass['sm']['url']." 1w,".$ass['url']." 2w"  
+          style="--ratio:".$ass['w'].'/'.$ass['h'].";--ratioSM:".$ass['sm']['w'].'/'.$ass['sm']['h'].";" 
+          alt=$ass['alt'] 
+          sizes="(max-width:1023px) 1px, 2px"
+        )
+    
+
+    

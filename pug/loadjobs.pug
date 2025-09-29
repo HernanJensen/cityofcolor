@@ -1,0 +1,28 @@
+include ./basic/mixins.pug
+
+
+
+if $posts
+  .hold  
+    each $a, $key in $posts
+      .Ajob 
+        a.Ajob_a(href="#")
+        .Ajob_top 
+          .cats 
+            .Acat
+              span.Acat_t Tampa, FL
+            .Acat(style="--catBG: #EDE6D6; --catC: #000;")
+              span.Acat_t CCA
+          
+          span.date 02/02/2025
+        h3.tt3 Specialty description.
+        .wysi.Ajob_ex 
+          ul 
+            li Aenean consequat congue elit, et tincidunt ligula faucibus vel. 
+            li Donec in ligula sed enim eleifend commodo.
+            li Sed in ligula sed enim eleifend commodo.
+        button.Abtn.openQuickMDL(aria-label="Quick Apply")
+          .Abtn_t Quick Apply
+else 
+  .hold 
+    .tx No jobs found

@@ -1,0 +1,29 @@
+include ./basic/mixins.pug
+main.page(skin="legal")
+  section.CMP.page_intro(data-cmp="intro" style="position:relative;min-height:100vh;")
+    .grid-vw
+      h1.tt1!=$post_title
+    .grid-vw-s
+      - $content = ''
+      each $item in $blocks
+        - $content = $content.$item['content']
+      .wysi.tx!=$content
+ 
+ 
+      .social 
+        .btns 
+          if $ops['iglink']
+            a(href=$ops['iglink']['url'] aria-label=$ops['iglink']['title'])
+              +icon('ig')
+          if $ops['fblink']
+            a(href=$ops['fblink']['url'] aria-label=$ops['fblink']['title'])
+              +icon('fb')
+          if $ops['gglink']
+            a(href=$ops['gglink']['url'] aria-label=$ops['gglink']['title'])
+              +icon('gg')
+          
+      
+        .tx-l 
+          p!=$ops['socialtitle']
+
+  +footer

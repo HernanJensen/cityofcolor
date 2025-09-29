@@ -1,0 +1,203 @@
+.legal{
+  &_intro{
+    min-height: 100lvh;
+    @mixin isMain{
+      padding-top: min(25rem,42lvh);
+      padding-bottom: min(30rem,48lvh);
+
+    }
+
+    @mixin isPT{
+      padding-top:resp(240,160);
+      padding-bottom:resp(240,160);
+    }
+
+    .gridcl{
+      @mixin isMain{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+      }
+        .cl8{
+
+          @mixin isMain{
+            margin-left:colSize(1);
+
+              .wysi{
+              & + .wysi{
+                margin-top:8rem;
+              }
+            }
+
+
+          }
+          @mixin isPT{
+            width:100%;
+
+          }
+
+          
+        }
+
+        .cl3{
+          position: sticky;
+          top:var(--headH);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-end;
+          
+          @mixin isPT{
+            display:none;
+          }
+
+          a{
+            text-align: right;
+            line-height: 1.1;
+            letter-spacing: -.01em;
+          
+            @mixin isPc{
+              font-size: max(1.8rem,16px);
+          
+            }
+          
+            @mixin isResp{
+              font-size: 16px;
+          
+            }
+
+            & + a{
+              margin-top: .8rem;
+            }
+          }
+        }
+
+        & + .gridcl{
+
+            margin-top : 8rem;
+            @mixin isPT{
+              margin-top : resp(80,64);
+
+            }
+        }
+
+      
+    }
+    
+    .h1{
+
+      position: relative;
+      display: block;
+      
+     
+    }
+
+
+
+
+    .wysi{
+
+        h1,h2,h3,h4,h5,h6,h7{
+          font-weight: 400;
+          line-height: 1.25;
+          letter-spacing: -.01em;
+          @mixin isMain{
+            font-size: 4rem;
+
+          }
+          @mixin isPT{
+            font-size: resp(40,24);
+          
+          }
+
+
+        & + p{
+          
+          margin-top:4rem;
+        }
+        & + ul{
+          
+          margin-top:4rem;
+        }
+        & + ol{
+          margin-top:4rem;
+        }
+        & + h1,& + h2,& + h3,& + h4,& + h5,& + h6,& + h7{
+          margin-top:2rem;
+        }
+      }
+      p{
+        line-height:1.25;
+        & + p{
+          
+          margin-top:1lh;
+        }
+        & + ul{
+          
+          margin-top:1lh;
+        }
+        & + ol{
+          margin-top:1lh;
+        }
+        & + h1,& + h2,& + h3,& + h4,& + h5,& + h6,& + h7{
+          margin-top:6rem;
+        }
+      }
+
+
+      ul{
+        li{
+          font-size: max(1.4rem,14px);
+          letter-spacing: -.01em;
+          font-family: 'base';
+        line-height:1.25;
+
+        }
+        & + p{
+          
+          margin-top:1lh;
+        }
+        & + ul{
+          
+          margin-top:1lh;
+        }
+        & + ol{
+          margin-top:1lh;
+          
+        }
+        & + h1,& + h2,& + h3,& + h4,& + h5,& + h6,& + h7{
+          margin-top:6rem;
+        }
+      }
+
+
+      ol{
+        li{
+          font-size: max(1.4rem,14px);
+          line-height:1.25;
+          letter-spacing: -.01em;
+          font-family: 'base';
+
+        }
+        & + p{
+          
+          margin-top:1lh;
+        }
+        & + ul{
+          
+          margin-top:1lh;
+        }
+        & + ol{
+          margin-top:1lh;
+          
+        }
+        & + h1,& + h2,& + h3,& + h4,& + h5,& + h6,& + h7{
+          margin-top:6rem;
+        }
+      }
+
+
+    }
+  }
+}

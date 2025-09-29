@@ -1,0 +1,33 @@
+include ./basic/mixins.pug
+.VIU(data-skin="legal").legal
+  main
+    section.legal_intro
+      .gridcl
+        .cl8
+          h2.h1(data-split="words:{wrap:clip|clone:bottom}")!=$post_title ?? 'Legal'
+      .gridcl
+        .cl8
+          .legal_intro_content
+            each $a,$i in $rep_0
+              - $id = (isset($a['title']) && $a['title'] != '') ? $a['title'] : '';
+              - $id = str_replace(" ","-", trim($id));         
+              - $id = preg_replace("/[^a-zA-Z0-9-]/","", $id);
+              - $id = strtolower($id)
+              .wysi(id=$id)!=$a['wysi']
+        .legal_intro_stk.cl3
+
+            each $a,$i in $rep_0
+              - $id = (isset($a['title']) && $a['title'] != '') ? $a['title'] : '';
+              - $id = str_replace(" ","-", trim($id));         
+              - $id = preg_replace("/[^a-zA-Z0-9-]/","", $id);
+              - $id = strtolower($id)
+              a.anc(href='#'.$id)!=$a['title']
+
+
+
+
+    
+    
+    
+
+  +footer

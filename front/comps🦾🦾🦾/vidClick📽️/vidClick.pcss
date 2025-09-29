@@ -1,0 +1,126 @@
+.vid{
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:clip;
+  video{
+    position:absolute;
+    left:0;
+    top:0;
+    object-fit:cover;
+  }
+  &Click{
+    width:10rem;
+    aspect-ratio:1;
+    background:$dark;
+    border-radius:50%;
+    @mixin center;
+    position:relative;
+    transition:.4s opacity .3s $swiftOut,.7s transform .5s $swiftOut;
+
+    &::before{
+      content:'';
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:20%;
+      aspect-ratio:10/15;
+      clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+      transition: .5s clip-path $swiftOut;
+
+      transform:translate(-30%,-50%);
+      background:$light;
+    }
+
+  }
+  &_Ctr{
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    background:rgba(0,0,0,.4);
+    padding:$padgrid;
+
+    transition:.6s opacity $swiftOut,.8s transform $swiftOut;
+    &_pl {
+      width: 8px;
+      height: 16px;
+      position:relative;
+
+      span{
+        @mixin clock;
+        background: white;
+        display:block;
+        /* PAUSED */
+        /* &:first-child{
+          clip-path: polygon(0 0, 2px 0, 2px 100%, 0% 100%);
+          transition: .5s clip-path $swiftOut;
+        }
+        &:last-child{
+
+          clip-path: polygon(calc(100% - 2px) 0, 100% 0, 100% 100%, calc(100% - 2px) 100%);
+
+          transition: .2s clip-path 0.4s $swiftOut;
+        } */
+        /* PLAY */
+        &:first-child{
+          clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+          transition: .5s clip-path $swiftOut;
+
+        }
+        &:last-child{
+
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+          transition: .2s clip-path 0.2s $swiftOut;
+
+        }
+      }
+
+    }
+  }
+
+  &:not(.A){
+    .vid{
+
+      &_Ctr{
+        opacity:0;
+        pointer-events:none;
+        transform:translateY(100%);
+      }
+
+    }
+  }
+  &.A{
+    .vid{
+      
+      &Click{
+        opacity:0;
+        transform:translate(-50%,50%);
+        pointer-events:none;
+      }
+
+
+    }
+  }
+
+  &.run{
+    .vid{
+      &_Ctr{
+        &_pl{
+          span{
+            &:first-child{
+              clip-path: polygon(0 0, 2px 0, 2px 100%, 0% 100%);
+              transition: .3s clip-path .1s $swiftOut;
+            }
+            &:last-child{
+
+              clip-path: polygon(calc(100% - 2px) 0, 100% 0, 100% 100%, calc(100% - 2px) 100%);
+
+              transition: .2s clip-path $swiftOut;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

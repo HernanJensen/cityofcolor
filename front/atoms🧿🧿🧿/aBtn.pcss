@@ -1,0 +1,72 @@
+.aBtn{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:2px;
+
+    white-space:nowrap;
+
+
+
+    @mixin isMain{
+
+      padding:2rem 2.5rem;
+    }
+
+    @mixin isResp{
+      
+      padding:1.8rem 2.3rem;
+    }
+
+    .w > span{
+      padding:1px 0;
+    }
+
+    &-sm{
+      font-size:max(12px,1.2rem);
+      
+      padding:1.6rem;
+    }
+   
+  &_i{
+    margin-right:.4em;
+    width:1.5rem;
+    display:flex;
+    position:relative;
+    svg{
+      width:100%;
+
+      &:last-child{
+        position:absolute;
+        left:0;
+        top:0;
+      }
+
+    }
+  }
+  &_arr{
+    /* margin-left:.12em; */
+  }
+
+  &-dk{
+    background-color:$dark;
+    color:$light;
+  
+    
+    &B{
+      border:1px solid $light;
+      color:$light;
+    
+    }
+  }
+  &-lt{
+    background-color:$light;
+    color:$dark;
+
+    &B{
+      color:$dark;
+      border:1px solid $dark;
+    }
+  }
+}
