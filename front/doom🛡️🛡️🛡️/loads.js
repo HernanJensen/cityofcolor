@@ -2,6 +2,8 @@ import { swiftOut, timeout, sleep, genPoster, parseCustomData } from '/front/js�
 
 import { lazyanm } from './anm.js'
 
+import { loadVID } from './lazyResp.js'
+
 import {
   setCtr
 } from '/front/comps🦾🦾🦾/vidClick📽️/vidClick'

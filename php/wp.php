@@ -3,7 +3,7 @@
 //$prjfolder = 'era';
 // $URI ='http://localhost:4444/era/wp';
 // $base = 'http://localhost:4444/era/wp';
-$prjfolder = 'doom-wp';
+$prjfolder = 'cityofcolor';
 
 $color = '#FFF';
 $isWP = 1;
@@ -22,7 +22,7 @@ function getSkin($view, $ops){
 
   
   $base = str_contains($ops->base,'192.168')  ? 'http://localhost:4444/'.$ops->prjfolder : $ops->base;
-  $base = 'https://doom-wp.csskiller.es';
+  $base = 'https://cityofcolor.csskiller.es';
   $url = $base.'/wp-json/csskiller/v1/getskin';
   $data = [
     'url'         =>$view,
@@ -208,7 +208,7 @@ function getPosts($view, $ops){
 
   
   $base = $ops->base=='http://192.168.0.113:8888' ? 'http://localhost:4444/'.$ops->prjfolder : $ops->base;
-  $base = 'https://doom-wp.csskiller.es';
+  $base = 'https://cityofcolor.csskiller.es';
   $url = $base.'/wp-json/csskiller/v1/getposts';
 
   $data = [
@@ -266,7 +266,7 @@ function sendForm($view, $ops){
 
   
   $base = $base = str_contains($ops->base,'192.168') ? 'http://localhost:4444/'.$ops->prjfolder : $ops->base;
-  $base = 'https://doom-wp.csskiller.es/';
+  $base = 'https://cityofcolor.csskiller.es/';
   $url = $base.'/wp-json/csskiller/v1/sendform';
   $data = [
     'form'          => isset($ops->form) ? $ops->form : false,

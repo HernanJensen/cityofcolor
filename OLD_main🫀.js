@@ -128,7 +128,7 @@ if (import.meta.env.DEV == true) {
   //SANITY
   // global.base = window.location.origin.replace('1234', '8888')
   //WP
-  global.base = "https://doom-wp.csskiller.es/"
+  global.base = "https://cityofcolor.csskiller.es/"
 }
 const url = new URL(window.location.href)
 

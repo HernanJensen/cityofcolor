@@ -128,7 +128,7 @@ global.cookies = url.searchParams.has('cookies') ? -1 : global.cookies
 if (import.meta.env.DEV == true) {
 
   document.documentElement.classList.add('dev')
-  global.base = "https://doom-wp.csskiller.es/"
+  global.base = "https://cityofcolor.csskiller.es/"
 
 }
 
