@@ -1,0 +1,49 @@
+.que{
+  
+
+  &_net{
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+
+   
+
+    .grid-vw{
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      gap: 8rem;
+
+
+      .list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4.6rem 4rem;
+        width: 100%;
+        max-width:calc(115rem + $padgut * 2);
+        padding: 0 $padgut;
+        &_el{
+          width: 100%;
+          max-width: 24.8rem;
+          position: relative;
+          *{
+            position: relative;
+           }
+          &::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:4.4rem;
+            height:4.4rem;
+            border-radius: 50%;
+            background: $yellow;
+            transform: translate(-50% , -10%);
+          }
+        }
+        
+      }
+    }
+  }
+}
+

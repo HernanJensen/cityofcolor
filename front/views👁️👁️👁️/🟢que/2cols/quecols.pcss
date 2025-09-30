@@ -1,0 +1,88 @@
+.que{
+  
+
+  &_cols{
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+
+    .grid-vw{
+      
+      gap: 2rem;
+      
+      @mixin isMain{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 69rem;
+      }
+      @mixin isPT{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .im{
+        border-radius: max(.8rem, 8px);
+        overflow: hidden;
+        position: relative;
+
+        background: $yellow;
+        @mixin isPT{
+          aspect-ratio: 1/1;
+          width: 100%;
+        }
+        
+        picture, video{
+          @mixin center; 
+          width: 100%;
+          max-width: min(43rem, calc(100% - 3.2rem));
+          aspect-ratio: 418/432;
+          -webkit-clip-path: url("#clipBlob");
+          clip-path: url("#clipBlob");
+
+
+          @mixin isPT{
+            max-width: none;
+            width: calc(100% - 12rem);
+          }
+        }
+      }
+      .info{
+        width: 100%;
+        border-radius: max(.8rem, 8px);
+        padding: 6.4rem 10.8rem 5.2rem 7rem;
+        background: $beige;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        @mixin isPT{
+          padding: 3.2rem 2.4rem;
+        }
+        h3{
+          margin-top: auto;
+        }
+        .list{
+          margin-top: 5.2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          &_el{
+
+            display: flex;
+            gap: .4rem;
+
+            &_ind{
+              font-size: 5.4rem;
+              line-height: .8;
+              font-weight: 900;
+              color: $pink;
+              width: 5rem;
+              flex-shrink: 0; 
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+

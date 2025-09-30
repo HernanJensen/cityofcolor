@@ -1,0 +1,94 @@
+include ./basic/mixins.pug
+.VIU(data-skin="que").que
+  
+  main
+    section.que_intro 
+      .grid-vw
+        .im
+          +media(
+            [
+              'ass'=> $imvid_0,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes'
+            ]
+          )
+        .info 
+          h1.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$title_0
+
+          .aScr
+            i.aScr_i 
+              +icon('arrow-down')
+            span.aScr_t.grt SABER MÁS
+
+    section.que_pils 
+      .grid-vw 
+        h2.h2!=$title_1
+        if $rep_1
+          .pils 
+            each $a,$k in $rep_1
+              .pils_el
+                .pils_el_top 
+                  span.ind!=$k+1
+                  h3.h3!=$a['title']
+                .p-s!=$a['text']
+
+
+    section.que_cols 
+      .grid-vw.top 
+        .im 
+          +media(
+            [
+              'ass'=> $img_2,
+              'lazy'=>1,
+              'res'=>$res,
+              'auto'=>'yes',
+              'target'=>'.about_cols'
+            ]
+          )
+        .info
+          h2.h2!=$title_2
+          .wysi!=$text_2
+          if $rep_2
+            .list
+              each $a, $k in $rep_2
+                .list_el 
+                  .list_el_ind 
+                    span!=$k+1
+                  .list_el_inf 
+                    h3.h3!=$a['title']
+                    .p-s!=$a['text']
+
+
+    section.que_net
+      .grid-vw 
+        h2.h2!=$title_3
+        if $rep_3
+          .list
+            each $a in $rep_3
+              .list_el.wysi!=$a['wysi']
+    
+
+    section.que_area
+      .grid-vw 
+        h2.h2!=$title_4
+        if $rep_4
+          .list
+            each $a in $rep_4
+              .list_el
+                .i 
+                  +icon('logoblack')
+                h3.p!=$a['title']
+                .p-s!=$a['text']
+
+        if $link_4
+          a.aBtn(href=$link_4['url']  aria-label=$link_4['title'])
+            .aBtn_t
+              span.r!=$link_4['title']
+              span.c!=$link_4['title']
+            .aBtn_i 
+              +icon('arrow') 
+
+
+
+  +footer

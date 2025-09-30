@@ -1,0 +1,70 @@
+.que{
+  &_intro{
+    padding-top: calc(var(--headH) + 2px);
+
+
+
+    .grid-vw{
+      display: grid;
+
+      @mixin isMain{ 
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+     
+      .im{
+        
+        overflow: clip;
+        position: relative;
+        min-height: 42rem;
+        @mixin isMain{ 
+          border-radius: max(.8rem, 8px);
+        }
+        @mixin isPT{
+          border-top-left-radius: max(.8rem, 8px);
+          border-top-right-radius: max(.8rem, 8px);
+          overflow: hidden;
+        }
+        picture, video{
+          @mixin imgCover;
+        }
+      }
+      .info{
+        
+        background: $pink;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3rem;
+        @mixin isMain{ 
+          padding: 4rem;
+          border-radius: max(.8rem, 8px);
+        }
+        @mixin isPT{
+          padding: 3rem 2.4rem;
+          border-bottom-left-radius: max(.8rem, 8px);
+          border-bottom-right-radius: max(.8rem, 8px);
+          min-height: 28rem;
+        }
+        .h1{
+          max-width: 53rem;
+        }
+
+        .aScr{
+          &_i{
+            background: $dark;
+
+            svg path{
+              fill: $light;
+            }
+          }
+        }
+      }
+    }
+
+
+    
+  }
+}
+

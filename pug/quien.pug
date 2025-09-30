@@ -1,0 +1,47 @@
+include ./basic/mixins.pug
+.VIU(data-skin="quien").quien
+  
+  main
+    section.quien_intro 
+      .grid-vw
+        .im
+          +media(
+            [
+              'ass'=> $imvid_0,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes'
+            ]
+          )
+        .info 
+          h1.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$title_0
+
+          .aScr
+            i.aScr_i 
+              +icon('arrow-down')
+            span.aScr_t.grt SABER MÁS
+
+    section.quien_txt
+      .grid-vw 
+        .p-l!=$text_1
+
+    section.quien_net
+      .grid-vw 
+        h2.h2!=$title_2
+        if $rep_2
+          .list
+            each $a in $rep_2
+              .list_el.wysi.p-s!=$a['wysi']
+
+        if $link_2
+          a.aBtn(href=$link_2['url'] aria-label=$link_2['url'])
+            .aBtn_t 
+              span.r!=$link_2['title']
+              span.c!=$link_2['title']
+            .aBtn_i 
+              +icon('arrow')
+
+
+
+
+  +footer

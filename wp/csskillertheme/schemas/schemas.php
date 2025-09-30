@@ -15,6 +15,8 @@ require_once(locate_template('/schemas/post/page.php'));
 //⚪
 require_once(locate_template('/schemas/static/home.php'));
 require_once(locate_template('/schemas/static/about.php'));
+require_once(locate_template('/schemas/static/que.php'));
+require_once(locate_template('/schemas/static/quien.php'));
 require_once(locate_template('/schemas/static/blog.php'));
 require_once(locate_template('/schemas/static/legal.php'));
 
@@ -26,6 +28,8 @@ function ea_disable_editor( $id = false) {
 	$excluded_templates = array(
 		'page-home.php',
 		'page-about.php',
+		'page-que.php',
+		'page-quien.php',
 		'page-legal.php',
 		'templates/contact.php'
 		

@@ -1,0 +1,90 @@
+.que{
+  
+
+  &_area{
+    padding-top: 9rem;
+    padding-bottom: 16rem;
+    background: $beige;
+
+    .grid-vw{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7.2rem;
+      text-align: center;
+
+      .list{
+        max-width: 116rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6.4rem ;
+        @mixin isPT{
+          grid-template-columns: 1fr 1fr;
+        }
+        @mixin isMobile{
+          grid-template-columns: 1fr;
+        }
+        &_el{
+          display: flex;
+          flex-direction: column;
+          gap: 1.6rem;
+          align-items: center;
+
+          &:nth-child(6n+1){
+            --iC: $yellow;
+          }
+          &:nth-child(6n+2){
+            --iC: $blue;
+          }
+          &:nth-child(6n+3){
+            --iC: $red;
+          }
+          &:nth-child(6n+4){
+            --iC: $green;
+          }
+          &:nth-child(6n+5){
+            --iC: $pink;
+          }
+          &:nth-child(6n+6){
+            --iC: $purple;
+          }
+          .i{
+            width: 7rem;
+            height: 7rem;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: var(--iC);
+            svg{
+              width: 4.4rem;
+              path{
+                fill: #FFF;
+              }
+            }
+
+          }
+          h3{
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: $dark;
+          }
+
+          p{
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: $dark;
+          }
+        }
+
+      }
+    }
+   
+  }
+
+
+  .foot{
+    background: $beige;
+  }
+}
+

@@ -1,0 +1,78 @@
+.quien{
+  
+
+  &_net{
+    padding-top: 8rem;
+    padding-bottom: 13rem;
+    background: $beige;
+   
+
+    .grid-vw{
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      gap: 8rem;
+
+
+      .list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 4.6rem 4rem;
+        width: 100%;
+        max-width:calc(115rem + $padgut * 2);
+        padding: 0 $padgut;
+
+        @mixin isPT{
+          grid-template-columns: 1fr 1fr;
+        }
+        @mixin isMobile{
+          grid-template-columns: 1fr;
+        }
+        &_el{
+          width: 100%;
+          max-width: 31.2rem;
+          position: relative;
+          &:nth-child(6n+1){
+            --iC: $yellow;
+          }
+          &:nth-child(6n+2){
+            --iC: $red;
+          }
+          &:nth-child(6n+3){
+            --iC: $pink;
+          }
+          &:nth-child(6n+4){
+            --iC: $purple;
+          }
+          &:nth-child(6n+5){
+            --iC: $blue;
+          }
+          &:nth-child(6n+6){
+            --iC: $green;
+          }
+          *{
+            position: relative;
+           }
+          &::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:4.4rem;
+            height:4.4rem;
+            border-radius: 50%;
+            background: var(--iC);
+            transform: translate(-50% , -10%);
+          }
+        }
+        
+      }
+    }
+  }
+
+
+  .foot{
+    background: $beige;
+  }
+}
+
