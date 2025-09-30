@@ -201,67 +201,59 @@ const videoprom = new Promise((resolve) => {
 
 //🐙🐙🐙🐙 INIT APP
 
-const PROM = await Promise.all([
-  videoprom,
-  //getSkin
-  callCenter(global, 'getSkin')
+if (import.meta.env.DEV) {
+  const PROM = await Promise.all([
+    videoprom,
+    //getSkin
+    callCenter(global, 'getSkin')
 
-  // POR SI HAY QUE HACER PROMISES DE FUENTES
-  // new FontFace('mont','url(/public/fonts/montrealbook.woff2)',{
-  //   style:'normal',weight:400
-  // })
-
-
-])
-  .then((data) => {
-
-    global.lowbat = data[0]
-    global.first = 0
+    // POR SI HAY QUE HACER PROMISES DE FUENTES
+    // new FontFace('mont','url(/public/fonts/montrealbook.woff2)',{
+    //   style:'normal',weight:400
+    // })
 
 
+  ])
+    .then((data) => {
+
+      global.lowbat = data[0]
+      global.first = 0
+      global.device = data[1].device
+
+      console.log(data[1])
+      // console.table(data[1])
+      console.log(performance)
+      console.log(performance.memory)
 
 
-    console.log(data)
-    console.log(performance)
-    console.log(performance.memory)
-
-    const parser = new DOMParser()
-    //me quedo con el loader
 
 
-    const loader = parser.parseFromString(data[1]['loader'], 'text/html')
-    document.querySelector('#app').insertAdjacentHTML('beforeend', loader.body.textContent)
-    global.loader = loader.body.textContent
-    const nav = parser.parseFromString(data[1]['nav'], 'text/html')
-    document.querySelector('#app').insertAdjacentHTML('beforeend', nav.body.textContent)
-    const skin = parser.parseFromString(data[1]['skin'], 'text/html')
-    document.querySelector('#app').insertAdjacentHTML('beforeend', skin.body.textContent)
+      const parser = new DOMParser()
 
-    const cookiesToAccept = data[1]['cookies'] ?? false
-    global.cookies = cookiesToAccept == false ? false : showCookies(global.cookies, cookiesToAccept)
+      const loader = parser.parseFromString(data[1]['loader'], 'text/html')
+      document.querySelector('#app').insertAdjacentHTML('beforeend', loader.body.textContent)
+      global.loader = loader.body.textContent
+      const nav = parser.parseFromString(data[1]['nav'], 'text/html')
+      document.querySelector('#app').insertAdjacentHTML('beforeend', nav.body.textContent)
+      const skin = parser.parseFromString(data[1]['skin'], 'text/html')
+      document.querySelector('#app').insertAdjacentHTML('beforeend', skin.body.textContent)
+
+    })
+  new App(global)
+
+} else {
+  (async () => {
+    const PROM = await Promise.all([
+      videoprom,
+    ])
+      .then((data) => {
+        global.lowbat = data[0]
+        global.first = 0
+      })
+    new App(global)
+  })();
+}
 
 
-    // const ass = document.querySelector('.home_since video')
-    // ass.oncanplay = () => {
-    //   ass.pause()
-    //   ass.isPlaying = true
-    //   console.log('mayot rolo')
-    // }
-    // ass.onloadeddata = () => {
-    //   ass.pause()
-    //   ass.isPlaying = true
-    //   console.log('mayot verde')
-    // }
-    // ass.onloadstart = () => {
-    //   ass.pause()
-    //   ass.isPlaying = true
-    //   console.log('mayot azu')
-    // }
-    // ass.oncanplaythrough = () => {
-    //   ass.pause()
-    //   ass.isPlaying = true
-    //   console.log('mayot amarillo')
-    // }
 
-  })
-new App(global)
+

@@ -1,12 +1,86 @@
 include ./basic/mixins.pug
 .VIU(data-skin="home").home
+
+  svg(width="0" height="0" style="position:absolute;left:0;top:0;pointer-events:none;overflow:visible;")
+    defs
+      clipPath(id="clipBlob" clipPathUnits="objectBoundingBox")
+        path(d="M0.9143 0.5000 C1.0285 0.3860 1.0285 0.2014 0.9143 0.0875 C0.8007 -0.0264 0.6148 -0.0264 0.5003 0.0875 C0.3869 -0.0264 0.2018 -0.0264 0.0877 0.0875 C-0.0265 0.2014 -0.0265 0.3860 0.0877 0.5000 C-0.0265 0.6137 -0.0265 0.7986 0.0877 0.9123 C0.2018 1.0265 0.3869 1.0265 0.5003 0.9123 C0.6148 1.0265 0.8007 1.0265 0.9143 0.9123 C1.0285 0.7986 1.0285 0.6137 0.9143 0.5000 Z")
+  
+  
   main
-    h2.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false") Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem assumenda ducimus facilis placeat omnis reprehenderit sunt ipsam in eaque. Atque quae totam velit possimus voluptates odio excepturi consequuntur vero?
+    section.home_intro 
+      .hold
+        .bg 
+          +media(
+            [
+              'ass'=> $imvid_0,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes'
+            ]
+          )
+        .info 
+          h1.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$title_0
+          .txt(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$text_0
+
+          .aScr
+            i.aScr_i 
+              +icon('arrow-down')
+            span.aScr_t.grt SABER MÁS
+
+
+    section.home_txt 
+      .grid-vw 
+        h2.h2!=$title_1
+        h3.capt-l!=$titleb_1
+        .wysi!=$wysi_1
+        if $link_1
+          a.aBtn(href=$link_1['url'] aria-label=$link_1['title'])
+            .aBtn_t
+              span.r!=$link_1['title']
+              span.c!=$link_1['title']
+            i.aBtn_i 
+              +icon('arrow')
+    
+    section.home_cols 
+      .grid-vw 
+        .im 
+          
+          
+          +media(
+            [
+              'ass'=> $img_2,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes',
+              'target'=>'.home_cols'
+            ]
+          )
+
+        .info
+          h2.h2!=$title_2
+          .tx!=$text_2
+
+          h3.p
+            strong!=$titleb_2
+          ul 
+            each $a in $rep_2
+              li!=$a['text']
+
+          if $link_2
+            a.aBtn(href=$link_2['url'] aria-label=$link_2['title'])
+              .aBtn_t
+                span.r!=$link_2['title']
+                span.c!=$link_2['title']
+              i.aBtn_i 
+                +icon('arrow')
+
+
 
     //- include ./guides/parallax.pug
     //- include ./guides/posts.pug
     //- include ./guides/grids.pug
-    include ./guides/respmedia.pug
+    //- include ./guides/respmedia.pug
     //- include ./guides/uikit.pug
     //- include ./guides/forms.pug
       

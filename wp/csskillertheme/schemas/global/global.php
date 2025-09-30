@@ -6,14 +6,9 @@ $intro = new stdClass();
 $intro->title = 'Global';
 $intro->fields = [
   [
-      'label' => 'Email',
+      'label' => 'Email formulario',
       'type' => '6',
       'name' =>'email',
-  ],
-  [
-    'label' => 'Instagram',
-    'type' => '6',
-    'name' =>'instagram',
   ],
   [
     'label' => 'Mensaje alerta orientación móvil',
@@ -55,19 +50,34 @@ $ids = new stdClass();
 $ids->title = 'IDs';
 $ids->fields = [
   [
-      'label' => 'Projects',
+      'label' => 'Home',
       'type' => '6',
-      'name' =>'projects',
+      'name' =>'homeid',
   ],
   [
       'label' => 'About',
       'type' => '6',
-      'name' =>'about',
+      'name' =>'aboutid',
   ],
   [
-      'label' => 'Legal',
-      'type' => '6',
-      'name' =>'legal',
+    'label' => 'Que hacemos',
+    'type' => '6',
+    'name' =>'whatid',
+  ],
+  [
+    'label' => 'A quien va dirigido',
+    'type' => '6',
+    'name' =>'whoid',
+  ],
+  [
+    'label' => 'Colabora',
+    'type' => '6',
+    'name' =>'colaboraid',
+  ],
+  [
+    'label' => 'Privacidad',
+    'type' => '6',
+    'name' =>'privacidadid',  
   ],
 
   
@@ -75,10 +85,42 @@ $ids->fields = [
 
 
 
+$foot = new stdClass();
+$foot->title = 'Footer';
+$foot->fields = [
+  [
+      'label' => 'Email',
+      'type' => '6',
+      'name' =>'email_foot',
+  ],
+
+  [
+    'label' => 'Copyrights',
+    'type' => '0',
+    'name' =>'copy_foot',
+  ],
+
+  [
+    'label' => 'Social',
+    'type' => '9',
+    'name' =>'rep_foot',
+    'subs'=>[
+      [
+        'label' => 'Link',
+        'type'=>'6',
+        'name'=>'link',
+      ],
+    ]
+  ],
+ 
+];
 
 
 
-$parts = [$intro,$ids];
+
+
+
+$parts = [$intro,$ids, $foot];
 
 $control = [];
 $control['title'] = 'Options';

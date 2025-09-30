@@ -3,9 +3,22 @@ include ./mixins.pug
 nav.nav
   .nav_head.grid-vw
     a.nav_logo(href=$ops['base'])
-      +icon('CSSK')
-    .nav_ops
-      a.nav_ops_el(href=$ops['legal']['url'])
-        span!=$ops['legal']['title']
+      +icon('logo')
+    .nav_menu
+      a.nav_menu_op.grt
+        span Inicio
+      a.nav_menu_op.grt
+        span Sobre nosotros
+      a.nav_menu_op.grt
+        span Qué hacemos 
+      a.nav_menu_op.grt
+        span A quién va dirigido
+      a.nav_menu_op.grt
+        span Colabora
 
 
+svg(width="0" height="0" style="position:absolute;left:0;top:0;pointer-events:none;overflow:visible;")
+  defs
+    mask(id="maskBlob" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse")
+      rect(x="0" y="0" width="419" height="434" fill="black")
+      path(d="M383.106 217C430.932 167.564 430.932 87.4166 383.106 37.9802C335.279 -11.4563 257.743 -11.4563 209.916 37.9802C162.09 -11.4563 84.553 -11.4563 36.7265 37.9802C-11.0999 87.4166 -11.0999 167.564 36.7265 217C-11.0999 266.436 -11.0999 346.583 36.7265 396.02C84.553 445.456 162.09 445.456 209.916 396.02C257.743 445.456 335.279 445.456 383.106 396.02C430.932 346.583 430.932 266.436 383.106 217Z" fill="white")

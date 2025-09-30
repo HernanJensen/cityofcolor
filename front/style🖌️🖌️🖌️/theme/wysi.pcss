@@ -1,5 +1,254 @@
+
 .wysi{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 53.6rem;
+
+  --wysil: 2.4rem;
+  --wysim: 2.4rem;
+  --wysis: 2.4rem;
+  @include o-resp-PT{
+    --wysil: 2.4rem;
+    --wysim: 2.4rem;
+    --wysis: 2.4rem;
+
+  }
+
+  $wysil :var(--wysil);
+  $wysim :var(--wysim);
+  $wysis :var(--wysis);
+
+
+    img{
+      width:100%!important;
+      height:auto!important;
+    }
+
+
+  p{
+    
+      a{
+        text-decoration: underline;
+        /* font-weight: 700; */
+        @include hover{
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+
+      strong{
+          font-weight: 700;
+      }
+      & + ul,& + ol{
+          margin-top:$wysim;
+      }
+      & + img{
+          margin-top:$wysim;
+      }
+      & + p{
+          margin-top:$wysis;
+      }
+      & + h1,& + h2{
+        margin-top:$wysis;
+      }
+      & + h3,& + h4,& + h5,& + h6,& + h7{
+        margin-top:$wysim;
   
+      }
+      & + blockquote{
+        margin-top:$wysim;
+      }
+  }
+  ul{
+    li{
+      position:relative;
+      padding-left: 1.6rem;
+      &::before{
+          content: '• ';
+          position: absolute;
+          left: 0;
+        }
+      
+      & + li {
+        margin-top: .6em;
+        
+
+      }
+      a{
+        text-decoration: underline;
+      }
+
+       
+    }
+    & + h1,& + h2{
+      margin-top:$wysim;
+    }
+    & + h3,& + h4,& + h5,& + h6,& + h7{
+      margin-top:$wysim;
+
+    }
+    & + ul{
+      margin-top:$wysim;
+
+    }
+    & + ol{
+      margin-top:$wysim;
+
+    }
+
+    & + img{
+      margin-top:$wysim;
+    }
+
+    & + p{
+      margin-top:$wysim;
+    }
+    & + blockquote{
+      margin-top:$wysim;
+    }
+    
+  }
+  ol{
+    li{
+      position:relative;
+      counter-increment: step-counter;
+      display: flex;
+      gap: .8rem;
+      &::before{
+          content: counter(step-counter)'. ';
+          display: block;
+          min-width: 1.6rem;
+      }
+      
+      
+      & + li {
+        margin-top: .6em;
+        
+
+      }
+      a{
+        text-decoration: underline;
+      }
+    }
+    & + ul{
+      margin-top:$wysim;
+
+    }
+    & + ol{
+      margin-top:$wysim;
+
+    }
+
+    & + img{
+      margin-top:$wysim;
+    }
+
+    & + p{
+      margin-top:$wysim;
+    }
+    & + h1,& + h2{
+      margin-top:$wysis;
+    }
+    & + h3,& + h4,& + h5,& + h6,& + h7{
+      margin-top:$wysim;
+
+    }
+    & + blockquote{
+      margin-top:$wysim;
+    }
+  }
+  blockquote{
+    p{
+      color:$dark;
+      
+    }
+
+    a{
+      text-decoration: underline;
+    }
+    & + ul,& + ol{
+      margin-top:$wysim;
+    }
+    & + img{
+      margin-top:$wysim;
+    }
+    
+    & + h1,& + h2{
+      margin-top:$wysis;
+    }
+    & + h3,& + h4,& + h5,& + h6,& + h7{
+      margin-top:$wysim;
+
+    }
+    & + blockquote{
+      margin-top:$wysim;
+    }
+  }
+  h1,h2{
+    @mixin isMain{
+      font-size: max(2.8rem, 28px);
+    }
+    @mixin isPT{
+      font-size: max(1.6rem,14px);
+    }
+    
+    & + p{
+          
+        margin-top:$wysis;
+    }
+    & + ul,& + ol{
+      
+        margin-top:$wysis;
+    }
+    & + img{
+      
+        margin-top:$wysis;
+    }
+    & + blockquote{
+      
+        margin-top:$wysis;
+    }
+    & + h1,& + h2,& + h3,& + h4,& + h5,& + h6,& + h7{
+      
+        margin-top:$wysis;
+
+    }
+  }
+  h3,h4,h5,h6,h7{
+    @mixin isMain{
+      font-size: max(2.8rem, 28px);
+    }
+    @mixin isPT{
+      font-size: max(1.6rem,14px);
+    }
+    & + p{
+      
+        margin-top:$wysis;
+    }
+    & + ul,& + ol{
+      
+        margin-top:$wysis;
+    }
+    & + img{
+      
+        margin-top:$wysis;
+    }
+    & + blockquote{
+      
+        margin-top:$wysis;
+    }
+    & + h1,& + h2{
+      margin-top:$wysis;
+    }
+    & + h3,& + h4,& + h5,& + h6,& + h7{
+      
+        margin-top:$wysis;
+
+    }
+  }
 
   
 }

@@ -6,26 +6,37 @@
     width: 100%;
     z-index: 50;
 
+    background: $bg;
+
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
 
-    padding-top:2rem;
-    padding-bottom:2rem;
+    padding:3rem 6rem;
+
+    @mixin isPT{
+      padding: 2rem 2.4rem;
+    }
   }
     &_logo {
-      width: 10rem;
+      width: 17rem;
       display:flex;
-      
+      @mixin isPT{
+        width: 11.8rem;
+      }
       svg{
         width:100%;
 
       }
     }
 
-    &_ops{
-      right:$padgut;
-      @mixin centerY;
+    &_menu{
+      display: flex;
+      gap: 6rem;
+      align-items: center;
 
+      @mixin isPT{
+        display: none;
+      }
     }
 }

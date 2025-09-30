@@ -1,72 +1,118 @@
 .aBtn{
 
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:2px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  white-space:nowrap;
+  position:relative;
+  gap: max(1rem, 10px);
 
-    white-space:nowrap;
+  padding: 1rem 1rem 1rem 2rem;
 
-
-
-    @mixin isMain{
-
-      padding:2rem 2.5rem;
-    }
-
-    @mixin isResp{
-      
-      padding:1.8rem 2.3rem;
-    }
-
-    .w > span{
-      padding:1px 0;
-    }
-
-    &-sm{
-      font-size:max(12px,1.2rem);
-      
-      padding:1.6rem;
-    }
-   
+  border: 1px solid $dark;
+  border-radius: 5em;
+  overflow: hidden;
+  background: $dark;
+  color: $light;
+  
   &_i{
-    margin-right:.4em;
-    width:1.5rem;
+    width:3.6rem;
+    height:3.6rem;
     display:flex;
+    alignitems:center;  
+    justify-content:center;
     position:relative;
+    flex-shrink: 0;
+    &::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: $light;
+      transition: .6s transform $swiftOut;
+    }
     svg{
+      position: relative;
+      max-width: 2.4rem;
       width:100%;
+    }
+  }
+  &_t{
+    font-family: 'space';
+    font-weight: 400;
+    text-transform: uppercase;  
+    letter-spacing: -.01em;
+    line-height: lH(16,22);
+    font-size: max(1.6rem,16px);
+    position: relative;
+    z-index: 2;
 
-      &:last-child{
-        position:absolute;
-        left:0;
-        top:0;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: clip;
+    span{
+      grid-area: 1/1;
+      transition: .6s transform $swiftOut;
+
+      &.r{
+        color: $light;
+      }
+      &.c{
+        color: $dark;
+        transform: translateY(120%);
       }
 
     }
-  }
-  &_arr{
-    /* margin-left:.12em; */
+    
   }
 
-  &-dk{
-    background-color:$dark;
-    color:$light;
-  
-    
-    &B{
-      border:1px solid $light;
-      color:$light;
-    
+
+  @mixin hover{
+    &:hover{
+      
+      .aBtn{
+        &_i{
+          &::before{
+            transform: scale(25);
+          }
+        }
+        &_t{
+          span{
+            &.r{
+              transform: translateY(-120%);
+            }
+            &.c{
+              transform: translateY(0);
+            }
+          }
+        }
+      }
     }
   }
-  &-lt{
-    background-color:$light;
-    color:$dark;
+}
 
-    &B{
-      color:$dark;
-      border:1px solid $dark;
+
+
+
+.aScr{
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  position: relative; 
+  &_i{
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+    background: $light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      width: 2.4rem;
     }
+  }
+
+  &_t{
+
   }
 }

@@ -42,7 +42,7 @@ export class legal extends doom {
 
 
     const tit = this.main.querySelector('.h1'),
-    titSP = splits.get(tit)
+      titSP = splits.get(tit)
 
     const ANM = anime.createTimeline({
       autoplay: false,
@@ -56,21 +56,21 @@ export class legal extends doom {
       }
 
     })
-    .add(this.main, {
-      opacity: [0, 1],
-      duration: .6,
-      ease: 'inOut(2)',
-      // composition:'replace',
-    }, 0)
-    .add(titSP.words, {
-      y: ['100%','0%'],
-      duration: 1.8,
-      ease:'inOutExpo',
+      .add(this.main, {
+        opacity: [0, 1],
+        duration: .6,
+        ease: 'inOut(2)',
+        // composition:'replace',
+      }, 0)
+      .add(titSP.words, {
+        y: ['100%', '0%'],
+        duration: 1.8,
+        ease: 'inOutExpo',
 
-        
+
 
       }, anime.stagger(.3))
-    .init()
+      .init()
 
 
     // console.log('init home Intro')
@@ -103,7 +103,7 @@ export class legal extends doom {
         } = self.matches
 
 
-    })
+      })
 
   }
 

@@ -10,32 +10,33 @@ html {
 
   @mixin isPc {
     --gutgrid: .8rem;
-    --padgrid: 2.4rem;
+    --padgrid: 1.2rem;
   }
 
   @mixin isResp {
-    --padgrid: #{respFix(24,14)};
+    /* --padgrid: #{respFix(24,14)};
     --padgrid-s: #{respFix(24,14)};
-    --gutgrid: #{respFix(8,4)};
+    --gutgrid: #{respFix(8,4)}; */
+    --gutgrid: .8rem;
+    --padgrid: 1.2rem;
   }
 
   /* RESP HORIZONTAL */
   @mixin isTabletLD {
-    --padgrid: #{respFix(24,14)};
-    --padgrid-s: #{respFix(24,14)};
-    --gutgrid: #{respFix(8,4)};
+    --gutgrid: .8rem;
+    --padgrid: 1.2rem;
   }
 
   @mixin isMobileLD {
-    --padgrid: #{ratioFixMobileLS(100)};
-    --gutgrid: 4px;
+    --gutgrid: .8rem;
+    --padgrid: 1.2rem;
   }
 
 
   /* RESP VERTICAL */
   @mixin isRespPT {
-    --padgrid: #{respFix(24,14)};
-    --gutgrid: #{respFix(8,4)};
+    --gutgrid: .8rem;
+    --padgrid: 1.2rem;
   }
 }
 

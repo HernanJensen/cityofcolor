@@ -42,12 +42,12 @@ export class home extends doom {
 
     //PARAMS
     const first = OPS.get('first'),
-    splits = OPS.get('splits')
+      splits = OPS.get('splits')
 
     console.log(OPS)
 
     const tit = this.main.querySelector('.h1'),
-    titSP = splits.get(tit)
+      titSP = splits.get(tit)
 
     const ANM = anime.createTimeline({
       autoplay: false,
@@ -61,21 +61,21 @@ export class home extends doom {
       }
 
     })
-    .add(titSP.lines, {
-    y: ['100%','0%'],
-    duration: 1.8,
-    ease:'inOutExpo',
+      .add(titSP.lines, {
+        y: ['120%', '0%'],
+        duration: 1.8,
+        ease: 'inOutExpo',
 
-      
 
-    }, 0)
-    .add(this.main, {
-      opacity: [0, 1],
-      duration: .6,
-      ease: 'inOut(2)',
-      // composition:'replace',
-    }, 0)
-    .init()
+
+      }, 0)
+      .add(this.main, {
+        opacity: [0, 1],
+        duration: .6,
+        ease: 'inOut(2)',
+        // composition:'replace',
+      }, 0)
+      .init()
 
 
     // console.log('init home Intro')
@@ -108,7 +108,7 @@ export class home extends doom {
         } = self.matches
 
 
-    })
+      })
 
   }
 

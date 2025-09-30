@@ -9,8 +9,8 @@ mixin media($data)
   - $controls = isset($data['controls']) ? true : false
   - $type = isset($ass['type']) ? $ass['type'] : 'im'
 
-  - $ass['url'] = $predev.$ass['url']
-  - $ass['sm']['url'] = isset($ass['sm']['url']) ? $predev.$ass['sm']['url'] : NULL
+  - $ass['url'] = $ass['url']
+  - $ass['sm']['url'] = isset($ass['sm']['url']) ? $ass['sm']['url'] : NULL
 
   - $respSM = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['sm']['url']
   - $respLG = ($ass['url'] === $ass['sm']['url']) ? NULL : $ass['url']

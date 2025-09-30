@@ -1,4 +1,80 @@
 .home{
-  padding-top:30rem;
+  
+
+  &_intro{
+    padding-top: calc(var(--headH) + 2px);
+
+
+    .hold{
+      position: relative;
+      
+      
+      min-height: 65.4rem;
+      overflow: clip;
+      
+      
+
+      @mixin isMain{
+        margin: 0 $padgut;
+        border-radius: max(.8rem, 8px);
+        padding: $padgut;
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+      }
+      .bg{
+        
+        @mixin isMain{
+          position: absolute;
+          inset: 0;
+        }
+
+        @mixin isPT{
+          position: relative;
+          width: 100%;
+          aspect-ratio: 375/347;
+        }
+        picture, video{
+          @mixin imgCover;
+        }
+      }
+
+      .info{
+        
+        position: relative;
+        
+        background: $yellow;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        @mixin isMain{
+          padding: 4rem;
+          max-width: 49rem;
+          border-radius: max(.8rem, 8px);
+        }
+        @mixin isPT{
+          width: 100%;
+          padding: 3.2rem 2.4rem;
+        }
+
+        .txt{
+          font-family: 'redhat';
+          font-size: max(2.2rem, 22px);
+          font-weight:500;
+          line-height: lH(22,32);
+        }
+
+        .aScr{
+          margin-top: auto;
+          
+        }
+      }
+    }
+  }
+
+
+
 }
 

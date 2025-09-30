@@ -1,0 +1,87 @@
+.home{
+  
+
+  &_cols{
+    padding-bottom: 6.2rem;
+
+    .grid-vw{
+      
+      gap: 2rem;
+      
+      @mixin isMain{
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        min-height: 58rem;
+      }
+      @mixin isPT{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .im{
+        border-radius: max(.8rem, 8px);
+        overflow: hidden;
+        position: relative;
+
+        background: $blue;
+        @mixin isPT{
+          aspect-ratio: 1/1;
+          width: 100%;
+        }
+        
+        picture, video{
+          @mixin center; 
+          width: 100%;
+          max-width: min(43rem, calc(100% - 3.2rem));
+          aspect-ratio: 418/432;
+          -webkit-clip-path: url("#clipBlob");
+          clip-path: url("#clipBlob");
+
+
+          @mixin isPT{
+            max-width: none;
+            width: calc(100% - 12rem);
+          }
+        }
+      }
+      .info{
+        width: 100%;
+        border-radius: max(.8rem, 8px);
+        padding: 6.4rem 10.8rem 5.2rem 7rem;
+        background: $beige;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        @mixin isPT{
+          padding: 3.2rem 2.4rem;
+        }
+        h3{
+          margin-top: auto;
+        }
+        ul{
+          li{
+            position: relative;
+
+            &::before{
+              content: "";
+              display: inline-flex;
+              margin-right: 1.6rem;
+              width: 1.4rem;
+              height: 1.4rem;
+              background: $blue;
+              border-radius: 50%;
+            }
+          }
+        }
+        .aBtn{
+          margin-top: 2rem;
+          @mixin isPT{
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+}
+

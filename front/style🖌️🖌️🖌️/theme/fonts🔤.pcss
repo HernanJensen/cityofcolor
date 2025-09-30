@@ -7,6 +7,50 @@
 
 
 
+@font-face {
+  font-family: 'redhat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("~root/fonts/RedHatDisplay-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'redhat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("~root/fonts/RedHatDisplay-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'redhat';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("~root/fonts/RedHatDisplay-SemiBoldItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'redhat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("~root/fonts/RedHatDisplay-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'redhat';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("~root/fonts/RedHatDisplay-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'space';
+  font-display: swap;
+  src: url("~root/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+}
+
+
+
 h1,h2,h3,h4,h5,h6,h7{
   /* font-weight: 500;
   font-style:italic; */
@@ -15,37 +59,104 @@ h1,h2,h3,h4,h5,h6,h7{
 
 
 body{
-  font-family: 'base';
+  font-family: 'redhat';
   
-  color: $light;
+  color: $dark;
   background:$bg;
 
   font-weight: 400;
   font-style:normal;
-  line-height: 1;
-  font-size: max(1.6rem,14px);
-  /* @include o-resp-PT{
-    font-size: 16px;
-  } */
-  
+  line-height: lH(20,30);
+  font-size: max(2rem,20px);
+
 }
 
-p{
-  line-height:lH(16,24);
+strong, em{
+  font-weight: 700;
 }
-
-
 
 h1,.h1{
   font-weight: 400;
-  line-height: 1.25;
+  font-family: 'redhat';
+  line-height: lH(48,54);
   letter-spacing: -.01em;
   @mixin isMain{
-    font-size: 4rem;
+    font-size: 4.8rem;
 
   }
   @mixin isPT{
-    font-size: resp(40,24);
+    font-size: resp(48,36);
   
   }
+}
+h2,.h2{
+  font-weight: 500;
+  font-family: 'redhat';
+  line-height: lH(40,46);
+  letter-spacing: -.05em;
+  @mixin isMain{
+    font-size: 4rem;
+  }
+  @mixin isPT{
+    font-size: resp(40,32);
+  }
+}
+h3,.h3{
+  font-weight: 700;
+  font-family: 'redhat';
+  line-height: lH(28,32);
+  @mixin isMain{
+    font-size: 2.8rem;
+  }
+  @mixin isPT{
+    font-size: resp(40,24);
+  }
+}
+h4,.h4{
+  font-weight: 700;
+  font-family: 'redhat';
+  line-height: lH(20,28);
+  @mixin isMain{
+    font-size: 2rem;
+  }
+  @mixin isPT{
+    font-size: resp(20,16);
+  }
+}
+
+
+.p{
+  font-family: 'redhat';
+  font-weight: 400;
+  line-height: lH(20,30);
+  font-size: max(2rem,20px);
+}
+
+.capt{
+  font-family: 'redhat';
+  font-weight: 400;
+  line-height: lH(20,32);
+  font-size: max(2rem,20px);
+  &-l{
+    font-family: 'redhat';
+    font-weight: 400;
+    line-height: lH(30,38);
+    font-size: max(3rem,30px);
+  }
+  &-s{
+    font-family: 'redhat';
+    font-weight: 700;
+    line-height: lH(16,22);
+    font-size: max(1.6rem,16px);
+  }
+}
+
+
+.grt{
+  font-family: 'space';
+  font-weight: 400;
+  text-transform: uppercase;  
+  letter-spacing: -.01em;
+  line-height: lH(16,22);
+  font-size: max(1.6rem,16px);
 }

@@ -9,7 +9,8 @@
   	<link rel="preload"  href="<?php echo $URI.'/main.css'; ?>" as="style" />
 
 	
-
+    <title><?php wp_title('|', true, 'right'); ?></title>
+    <meta name="description" content="<?php bloginfo('description'); ?>" />
 	
 	<link rel="manifest" href="<?php echo $URI.'/csskiller/manifest.json'; ?>">
   	<link rel="stylesheet"href="<?php echo $URI.'/main.css'; ?>" />
