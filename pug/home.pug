@@ -50,7 +50,7 @@ include ./basic/mixins.pug
           +media(
             [
               'ass'=> $img_2,
-              'lazy'=>0,
+              'lazy'=>1,
               'res'=>$res,
               'auto'=>'yes',
               'target'=>'.home_cols'
@@ -74,6 +74,48 @@ include ./basic/mixins.pug
                 span.c!=$link_2['title']
               i.aBtn_i 
                 +icon('arrow')
+
+    section.home_projs 
+      .grid-vw 
+        h2.h2!=$title_3
+
+        .splide.projs(data-type="slide" data-focus="left")
+          .splide__track 
+            .splide__list 
+              each $a in $rep_3
+                .splide__slide.projs_el
+                  .projs_el_im 
+                    +media(
+                      [
+                        'ass'=> $a['img'],
+                        'lazy'=>1,
+                        'res'=>$res,
+                        'auto'=>'yes'
+                      ]
+                    )
+
+                  .projs_el_info
+                    h3.h3!=$a['title']
+                    .h3.loc!=$a['loc']
+                    .h3.year!=$a['year']
+                    h4.capt-s!=$a['title2']
+                    .p-s!=$a['text']
+        if $link_3
+
+          a.aBtn(href=$link_3['url'] aria-label=$link_3['title'])
+            .aBtn_t
+              span.r!=$link_3['title']
+              span.c!=$link_3['title']
+            i.aBtn_i 
+              +icon('arrow')
+
+
+
+
+
+
+  +footer
+
 
 
 

@@ -92,6 +92,31 @@
 }
 
 
+.aBtnS{
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  overflow: clip;
+  span{
+    grid-area: 1/1;
+    transition: .6s transform $swiftOut;
+    &.c{
+      transform: translateY(120%);
+    }
+
+  }
+  @mixin hover{
+    &:hover{
+      span{
+        &.r{
+          transform: translateY(-120%);
+        }
+        &.c{
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
 
 
 .aScr{

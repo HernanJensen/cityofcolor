@@ -1,3 +1,78 @@
 .foot{
+  position: relative;
+  width: 100%;
+
+  .bg{
+    position:absolute;
+    /* top: 0;
+    left:0;
+    width: 100%; */
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    svg{
+      width: 100%;
+      
+      @mixin isResp{
+        min-width: 171vw;
+      }
+    }
+  }
+
+  .grid-vw-s{
+    position: relative;
+    z-index: 1;
+    
+    width: 100%;
+    /* min-height: 43rem; */
+    
+
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @mixin isMain{
+      aspect-ratio: 1440/340;
+      padding-bottom: 4.8rem;
+    }
+    @mixin isResp{
+      aspect-ratio: 375/190;
+      padding-bottom: 2rem;
+      gap: 2.4rem;
+    }
+    .cl{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2.2rem;
+      @mixin isMain{
+        min-height: 22rem;
+      }
+
+      .rw{
+        &-social{
+          display:flex;
+          flex-direction: column;
+          
+        }
+
+        &-copy, &-legal{
+          font-size: 1.7rem;
+          font-weight: 500;   
+          @mixin isPT{
+            font-size: .8rem;
+          }     
+        }
+      }
+    }
+
+
+
+    
+
+  }
   
 }

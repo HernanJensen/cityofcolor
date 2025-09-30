@@ -1,6 +1,6 @@
 import { doom } from '/front/doom🛡️🛡️🛡️/doom🛡️'
 
-
+import Splide from '@splidejs/splide'
 
 //ANIMS
 import { linesShow, elY100, hovANM } from '/front/doom🛡️🛡️🛡️/anm.js'
@@ -15,6 +15,7 @@ export class home extends doom {
   constructor(el) {
 
     const style = getComputedStyle(document.documentElement)
+
 
 
     const mediaQueries = {
@@ -106,6 +107,49 @@ export class home extends doom {
           isMobile,
           isTouch
         } = self.matches
+
+
+        if (this.main.querySelector('.home_projs .splide')) {
+          const splide = this.main.querySelector('.home_projs .splide')
+
+          let type = splide.dataset.type ? splide.dataset.type : 'loop'
+          let focus = splide.dataset.focus ? splide.dataset.focus : 'center'
+          let autoWidth = splide.dataset.autoWidth ? splide.dataset.autoWidth : true
+          let pagination = splide.dataset.pagination ? splide.dataset.pagination : false
+
+          let bar = splide.querySelector('.prgEl')
+
+          // let dir = bar == null ? 'center' : 'left'
+
+          const slider = new Splide(splide,
+            {
+              type: 'slide',
+              autoWidth: autoWidth,
+              drag: true,
+              // focus: isPT ? 'center' : 'left',
+              focus: 'center',
+              // pagination: pagination,
+              // paginationType: 'bullets',
+              omitEnd: true,
+              arrows: false,
+              gap: '2rem',
+
+            }).mount()
+
+          const lgt = splide.querySelectorAll('.splide__slide').length - 1
+
+          if (splide.querySelector('.TL')) splide.querySelector('.TL').onclick = () => this.slider.go('-${i}')
+          if (splide.querySelector('.TR')) splide.querySelector('.TR').onclick = () => { if (this.slider.index < lgt) this.slider.go('+${i}') }
+
+          // if(bar!=null){
+          //   this.slider.on( 'mounted move', ()=> {
+          //     var end  = this.slider.Components.Controller.getEnd() - 1
+          //     var rate = Math.min( ( this.slider.index  ) / end, 1 )
+          //     bar.style.width = String( 100 * rate ) + '%'
+          //   } )
+          // }
+
+        }
 
 
       })

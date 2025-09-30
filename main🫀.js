@@ -63,7 +63,7 @@
 
 
 //📚 LIBS
-// import '@splidejs/splide/css/core';
+import '@splidejs/splide/css/core';
 // BASE & THEMES STYLES
 // import '/front/style🖌️🖌️🖌️/base🔧/tests.scss'
 

@@ -1,4 +1,31 @@
 mixin footer(data)
   footer.foot
-  
+    .bg 
+      +icon('footer')
+    .grid-vw-s
+      .cl
+        .rw.rw-mail 
+          h3.capt EMAIL 
+          if $ops['email_foot']
+            a.aBtnS(href=$ops['email_foot']['url'] aria-label=$ops['email_foot']['title'])
+              span.r!=$ops['email_foot']['title']
+              span.c!=$ops['email_foot']['title']
+        .rw.rw-copy 
+          p!=$ops['copy_foot']
+        
+                
+      .cl
+       
+        .rw.rw-social 
+          h3.capt SOCIAL 
+          if $ops['rep_foot']
+            each $a in $ops['rep_foot']
+              a.aBtnS(href=$a['link']['url'] aria-label=$a['link']['title'] target="_blank" rel="noopener")
+                span.r!=$a['link']['title']
+                span.c!=$a['link']['title']
+        .rw.rw-legal 
+          a.aBtnS(href=$ops['privacidadid']['url'] aria-label=$ops['privacidadid']['title'])
+            span.r!=$ops['privacidadid']['title']
+            span.c!=$ops['privacidadid']['title']
+
    
