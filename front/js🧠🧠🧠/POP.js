@@ -1,4 +1,4 @@
-import { timeout } from '/front/js🧠🧠🧠/🔧utils.js'
+
 
 
 
@@ -11,6 +11,9 @@ import { setRVL, initRVL, endRVL } from '/front/comps🦾🦾🦾/ldr⏳/RVLPOP.
 import { callCenter } from '/front/start🏁🏁🏁/callcenter🧱.js'
 
 import { views } from '/front/views👁️👁️👁️/views👁️'
+
+import { timeout } from '/front/js🧠🧠🧠/🔧utils'
+
 
 export async function POPin(
   url = null,
@@ -26,7 +29,7 @@ export async function POPin(
   const newurl = new URL(url, urlcheck)
 
   //💡 Si hay menú
-  // if (this.nav.isOpen == 1) await this.nav.closeFn(document.querySelector('.nav'))
+  if (this.NAV.isOpen == 1) await this.NAV.closeFn(this.OPS)
 
   //💡 Si la URL es igual sin hash
   // if (acturl.href.replace(newurl.hash, '') === newurl.href.replace(newurl.hash, '')) {
@@ -93,7 +96,6 @@ export async function POPin(
   // si necesitas que un elemento de una vista se quede para la siguiente vista. 
   // const ANMpromise = new Promise((resolve, reject) => ANM(resolve))
 
-  console.log(this.URL)
   const POPprom = new Promise((resolve, reject) => initRVL(ANMrvl, resolve))
   const HEADprom = new Promise((resolve, reject) => getHEAD(this.URL, resolve))
   const DATAprom = new Promise((resolve, reject) => getDATA(global, this.URL, resolve))
@@ -128,7 +130,8 @@ export async function POPin(
 async function getDATA(global, url, resolve) {
 
   const parser = new DOMParser()
-  const DATA = await callCenter(import.meta.env.DEV ? global : url, 'getSkin')
+  // const DATA = await callCenter(import.meta.env.DEV ? global : url, 'getSkin')
+  const DATA = await callCenter(global, 'getSkin')
   // const html = parser.parseFromString(DATA['skin'], 'text/html')
   const html = parser.parseFromString(import.meta.env.DEV ? DATA['skin'] : DATA, 'text/html')
 
@@ -154,22 +157,23 @@ async function getDATA(global, url, resolve) {
   //🦶 Le podemos hacer lo que queramos aquí al HTML
   // anime.utils.set(main,{top:0,position:'fixed',left:0})
   main.style.position = 'fixed'
+  main.style.opacity = 0
   main.style.left = '0%'
   main.style.top = '0%'
+  main.style.width = '100%'
 
-
-  await timeout(24)
   //🦶 Podemos hacerle aquí todo lo que queramos al main
-  // const h = window.innerHeight
+  const h = window.innerHeight
   // main.style.clipPath = 'polygon(0% '+h+'px,100% '+h+'px ,100% 100%,0% 100%)'
 
+  await timeout(24)
 
   //🦶 se busca en el Map views ( views👁️👁️👁️/views👁️ )
   const skin = main.dataset.skin ?? 'default'
   const vClass = views.has(skin) ? views.get(skin) : views.get('default')
   const viu = new vClass(main)
 
-  await viu.loadFn()
+  await viu.loadFn(0, main)
 
 
   resolve(viu)

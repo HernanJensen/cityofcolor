@@ -1,8 +1,8 @@
 <?php
 
 require get_template_directory() . '/vendor/autoload.php';
-//$html = get_loadview(['url'=>'/','device'=>-1]);
-$html = get_loadview(['id'=>get_the_ID(),'device'=>-1, 'url'=>get_the_permalink()]);
+//$html = getSkin(['url'=>'/','device'=>-1]);
+$html = getSkin(['id'=>get_the_ID(),'device'=>-1, 'url'=>get_the_permalink()]);
 
 include 'header.php';
 
