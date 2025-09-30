@@ -14,10 +14,7 @@ $intro->fields = [
     'type'=>'1',
     'op'=>'2'
   ],
-  [
-    'label' => 'Texto botón',
-    'type'=>'b0',
-  ],
+
   [
     'label' => 'Media',
     'type'=>'15',

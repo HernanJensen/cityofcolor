@@ -4,13 +4,17 @@ nav.nav
   .nav_head.grid-vw
     a.nav_logo(href=$ops['base'])
       +icon('logo')
+    button.nav_brg 
+      .in
+        .line 
+        
     .nav_menu
-      a.aBtnS.nav_menu_op.grt
+      a.aBtnS.nav_menu_op.grt(href=$ops['homeid']['url'] aria-label="Inicio")
         span.r Inicio
         span.c Inicio
-      a.aBtnS.nav_menu_op.grt
-        span.r Sobre nosotros
-        span.c Sobre nosotros
+      a.aBtnS.nav_menu_op.grt(href=$ops['aboutid']['url'] aria-label=$ops['aboutid']['title'])
+        span.r!=$ops['aboutid']['title']
+        span.c!=$ops['aboutid']['title']
       a.aBtnS.nav_menu_op.grt
         span.r Qué hacemos 
         span.c Qué hacemos 
@@ -24,6 +28,5 @@ nav.nav
 
 svg(width="0" height="0" style="position:absolute;left:0;top:0;pointer-events:none;overflow:visible;")
   defs
-    mask(id="maskBlob" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse")
-      rect(x="0" y="0" width="419" height="434" fill="black")
-      path(d="M383.106 217C430.932 167.564 430.932 87.4166 383.106 37.9802C335.279 -11.4563 257.743 -11.4563 209.916 37.9802C162.09 -11.4563 84.553 -11.4563 36.7265 37.9802C-11.0999 87.4166 -11.0999 167.564 36.7265 217C-11.0999 266.436 -11.0999 346.583 36.7265 396.02C84.553 445.456 162.09 445.456 209.916 396.02C257.743 445.456 335.279 445.456 383.106 396.02C430.932 346.583 430.932 266.436 383.106 217Z" fill="white")
+    clipPath(id="clipBlob" clipPathUnits="objectBoundingBox")
+      path(d="M0.9143 0.5000 C1.0285 0.3860 1.0285 0.2014 0.9143 0.0875 C0.8007 -0.0264 0.6148 -0.0264 0.5003 0.0875 C0.3869 -0.0264 0.2018 -0.0264 0.0877 0.0875 C-0.0265 0.2014 -0.0265 0.3860 0.0877 0.5000 C-0.0265 0.6137 -0.0265 0.7986 0.0877 0.9123 C0.2018 1.0265 0.3869 1.0265 0.5003 0.9123 C0.6148 1.0265 0.8007 1.0265 0.9143 0.9123 C1.0285 0.7986 1.0285 0.6137 0.9143 0.5000 Z")

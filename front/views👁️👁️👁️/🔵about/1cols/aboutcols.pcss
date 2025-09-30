@@ -1,0 +1,123 @@
+.about{
+  
+
+  &_cols{
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+
+    .top{
+      
+      gap: 2rem;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6.4rem;
+      @mixin isPT{
+        
+        flex-direction: column;
+        gap: 2.4rem;
+      }
+
+      .im{
+        max-width: 39.6rem;
+        width: 100%;
+        aspect-ratio: 317/327;
+        border-radius: max(.8rem, 8px);
+        overflow: hidden;
+        position: relative;
+
+        background: $bg;
+        
+        picture, video{
+          @mixin center; 
+          width: 100%;
+          -webkit-clip-path: url("#clipBlob");
+          clip-path: url("#clipBlob");
+
+        }
+      }
+      .info{
+        width: 100%;
+        border-radius: max(.8rem, 8px);
+        padding: 3.2rem 2rem;
+        max-width: 79rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        @mixin isPT{
+          padding: 0;
+          text-align: center;
+          align-items: center;
+        }
+        h3{
+          margin-top: auto;
+        }
+        .wysi{
+          max-width: 79rem;
+        }
+      }
+    }
+
+
+    .cols{
+      margin-top: 9.6rem;
+      display: grid;
+
+      
+      gap:2rem;
+
+      @mixin isMain{
+        grid-template-columns: 1fr 1fr 33rem;
+      }
+
+      &_el{
+        padding: 4rem;
+        background: $blue;
+        display: flex;
+        flex-direction: column;
+        gap: 6.4rem;
+        border-radius: max(.8rem, 8px);
+
+        &:nth-child(1){
+          background: $yellow;
+        }
+        &:nth-child(2){
+          background: $pink;
+        }
+        &_top{
+          display: flex;
+          gap: 1rem;
+
+          .i{
+            width: 4.3rem;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+            svg{
+              width: 100%;
+            }
+          }
+        }
+
+
+        &_list{
+
+          li{
+            display: flex;
+            gap: .8rem;
+
+            i{
+              display : flex;
+              justify-content: center;
+              align-items: center;
+              width: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

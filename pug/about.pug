@@ -1,5 +1,85 @@
 include ./basic/mixins.pug
-main.about(data-skin="about")
-  section.about_intro
-    .grid-vw 
-      h2.tt1!=$title_0
+.VIU(data-skin="about").about
+  
+  main
+    section.about_intro 
+      .grid-vw
+        .im
+          +media(
+            [
+              'ass'=> $imvid_0,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes'
+            ]
+          )
+        .info 
+          h1.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$title_0
+
+          .aScr
+            i.aScr_i 
+              +icon('arrow-down')
+            span.aScr_t.grt SABER MÁS
+
+
+    section.about_cols 
+      .grid-vw.top 
+        .im 
+          +media(
+            [
+              'ass'=> $img_1,
+              'lazy'=>1,
+              'res'=>$res,
+              'auto'=>'yes',
+              'target'=>'.about_cols'
+            ]
+          )
+        .info
+          h2.h2!=$title_1
+          .wysi!=$wysi_1
+
+      .grid-vw.cols
+        .cols_el.mis 
+          .cols_el_top 
+            i.i
+              +icon('logoblack')
+            h3.h2!=$titleb_1
+          .wysi.p-s!=$wysib_1
+
+
+        .cols_el.vis
+          .cols_el_top 
+            i.i
+              +icon('logoblack')
+            h3.h2!=$titlec_1
+          .wysi.p-s!=$wysic_1
+
+
+        .cols_el.val 
+          .cols_el_top 
+            i.i
+              +icon('logoblack')
+            h3.h2!=$titled_1
+
+          ul.cols_el_list 
+            if $rep_1
+              each $a in $rep_1
+                li 
+                  i.arr 
+                    +icon('arrow')
+                  span.p!=$a['title']
+
+
+    section.about_quien 
+      .grid-vw 
+        h2.h2!=$title_2
+        .wysi!=$wysi_2
+        if $link_2
+          a.aBtn(href=$link_2['url'] aria-label=$link_2['title'])
+            .aBtn_t
+              span.r!=$link_2['title']
+              span.c!=$link_2['title']
+            i.aBtn_i 
+              +icon('arrow')
+
+  +footer
