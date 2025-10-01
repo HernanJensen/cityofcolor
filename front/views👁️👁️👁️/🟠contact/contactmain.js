@@ -11,7 +11,7 @@ import { callCenter } from '/front/start🏁🏁🏁/callcenter🧱.js'
 
 import { Sld } from '/front/comps🦾🦾🦾/slider🎞️.js'
 
-export class home extends doom {
+export class contact extends doom {
   constructor(el) {
 
     const style = getComputedStyle(document.documentElement)
@@ -45,38 +45,10 @@ export class home extends doom {
     const first = OPS.get('first'),
       splits = OPS.get('splits')
 
+    console.log(OPS)
+
     const tit = this.main.querySelector('.h1'),
       titSP = splits.get(tit)
-
-
-    if (this.main.querySelector('.home_projs .splide')) {
-      const splide = this.main.querySelector('.home_projs .splide')
-
-      let type = splide.dataset.type ? splide.dataset.type : 'loop'
-      let focus = splide.dataset.focus ? splide.dataset.focus : 'center'
-      let autoWidth = splide.dataset.autoWidth ? splide.dataset.autoWidth : true
-      let pagination = splide.dataset.pagination ? splide.dataset.pagination : false
-
-      let bar = splide.querySelector('.prgEl')
-
-
-      const slider = new Splide(splide,
-        {
-          type: 'slide',
-          autoWidth: autoWidth,
-          drag: true,
-          focus: 'center',
-          omitEnd: true,
-          arrows: false,
-          gap: '2rem',
-
-        }).mount()
-
-      const lgt = splide.querySelectorAll('.splide__slide').length - 1
-
-      if (splide.querySelector('.TL')) splide.querySelector('.TL').onclick = () => this.slider.go('-${i}')
-      if (splide.querySelector('.TR')) splide.querySelector('.TR').onclick = () => { if (this.slider.index < lgt) this.slider.go('+${i}') }
-    }
 
     const ANM = anime.createTimeline({
       autoplay: false,
@@ -137,9 +109,31 @@ export class home extends doom {
         } = self.matches
 
 
+        if (this.main.querySelector('.contact_ops .ops_el ')) {
+
+          const els = this.main.querySelectorAll('.contact_ops .ops_el ')
+          const btns = this.main.querySelectorAll('.contact_ops .ops_el_btn ')
 
 
+          for (let b of btns) {
+            b.onclick = (ev) => {
+              ev.preventDefault()
+              const el = b.closest('.ops_el')
+              const close = el.querySelector('.ops_el_form .close')
+              el.classList.add('A')
 
+              lenis.stop()
+
+
+              close.onclick = (e) => {
+                e.preventDefault()
+                el.classList.remove('A')
+                lenis.start()
+              }
+            }
+
+          }
+        }
       })
 
   }

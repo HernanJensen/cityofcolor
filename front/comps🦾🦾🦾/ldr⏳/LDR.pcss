@@ -10,11 +10,27 @@
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   background-color: $bg;
 
+  &_bar{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: max(.8rem, 8px);
 
+    &::after{
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      width: var(--ldr-w, 0%);
+      height: 100%;
+      background-color: var(--ldr-clr, $blue);
+    }
+  }
   &_cnt{
     position: absolute;
     right:$padgut;
@@ -25,5 +41,9 @@
     span{
       display: inline-block;
     }
+  }
+
+  &_logo{
+    width: 22rem;
   }
 }

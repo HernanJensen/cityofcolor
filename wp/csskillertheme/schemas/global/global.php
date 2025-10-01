@@ -7,7 +7,7 @@ $intro->title = 'Global';
 $intro->fields = [
   [
       'label' => 'Email formulario',
-      'type' => '6',
+      'type' => '0',
       'name' =>'email',
   ],
   [

@@ -11,18 +11,21 @@ export async function callCenter(global, func = 'callCenter') {
     let view = import.meta.env.DEV ? window.location.pathname : global
 
     let url = view
+
     const urlParams = new URL(window.location.href)
+    // console.log(urlParams)
 
     // SANITY
     // const method = import.meta.env.DEV ? 'POST' : 'GET'
 
     //WP
     global.params = urlParams.search
-    url = urlParams.searchParams.has('uC') ? urlParams.searchParams.get('uC') : url
+    url = (import.meta.env.DEV && urlParams.searchParams.has('uC')) ? urlParams.searchParams.get('uC') : url
+
     let callUrl = import.meta.env.DEV == true ? window.location.origin.replace('1234', '8888') + '/php/main.php' : global.base
 
 
-
+    // console.log(callUrl)
     // PARAMS FETCH
     const method = 'POST'
 
@@ -45,7 +48,9 @@ export async function callCenter(global, func = 'callCenter') {
       body,
     })
       .then(async (response) => {
+        // console.log(response)
         const data = import.meta.env.DEV ? await response.json() : await response.text()
+        console.log(data)
         resolve(data)
       })
       .catch(error => console.error('Error:', error))

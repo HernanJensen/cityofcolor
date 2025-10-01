@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Template Contact
+ * Template Name: Template Contacto
  */
 require get_template_directory() . '/vendor/autoload.php';
 //$html = getSkin(['url'=>'/','device'=>-1]);

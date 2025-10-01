@@ -26,7 +26,7 @@ export async function initRVL(ANM, resolve) {
     }
   })
   .add(document.documentElement.querySelector('.VIU'), {
-    opacity: .4,
+    opacity: 0,
     duration: .3,
     ease: 'inOut(2)',
   },0)

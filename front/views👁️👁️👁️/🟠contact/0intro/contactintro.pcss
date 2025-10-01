@@ -1,0 +1,234 @@
+.contact{
+  &_intro{
+    padding-top: calc(var(--headH) + 2px);
+
+
+
+    .grid-vw{
+      display: grid;
+
+      @mixin isMain{ 
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+     
+      .im{
+        
+        overflow: clip;
+        position: relative;
+        min-height: 42rem;
+        @mixin isMain{ 
+          border-radius: max(.8rem, 8px);
+        }
+        @mixin isPT{
+          border-top-left-radius: max(.8rem, 8px);
+          border-top-right-radius: max(.8rem, 8px);
+          overflow: hidden;
+        }
+        picture, video{
+          @mixin imgCover;
+        }
+      }
+      .info{
+        
+        background: $purple;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3rem;
+        @mixin isMain{ 
+          padding: 4rem;
+          border-radius: max(.8rem, 8px);
+        }
+        @mixin isPT{
+          padding: 3rem 2.4rem;
+          border-bottom-left-radius: max(.8rem, 8px);
+          border-bottom-right-radius: max(.8rem, 8px);
+          min-height: 28rem;
+        }
+        .h1{
+          max-width: 53rem;
+        }
+
+        .aScr{
+          &_i{
+            background: $dark;
+
+            svg path{
+              fill: $light;
+            }
+          }
+        }
+      }
+    }
+
+
+    
+  }
+
+
+
+  &_ops{
+    padding-top: 8rem;
+    padding-bottom: 14rem;
+
+    .grid-vw{
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+      text-align: center;
+      gap: 6rem;
+
+
+      .ops{
+        display: flex;
+        justify-content: space-between;
+        gap: 2.4rem;
+        width: 100%;
+        max-width: 118rem;
+
+        @mixin isPT{
+          flex-direction: column;
+          align-items: center;
+          gap: 6.4rem;
+        }
+        &_el{
+          width: 100%;
+          max-width: 33rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: .8rem;
+          --iC: $blue;
+          &:nth-child(2){
+            --iC: $yellow;
+          }
+          &:nth-child(3){
+            --iC: $red;
+          }
+
+          .icon{
+            width: 5.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg path{
+              fill: var(--iC);
+            }
+          }
+
+          .h5{
+            margin-top: 2.4rem;
+          }
+
+          .p-s{
+            @mixin isMain{
+              padding-bottom: 4.4rem;
+            }
+          }
+          .aBtn{
+            
+            @mixin isMain{
+              margin-top: auto;
+            }
+            @mixin isPT{
+              margin-top: 2.4rem;
+            }
+          }
+
+
+
+          &_form{
+
+            position: fixed;
+            inset:0;
+            z-index: 100;
+
+            background: $bg;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+
+            clip-path: inset(0 0 0 0);
+            transition: .6s clip-path $swiftOut;
+            .close{
+              position: absolute;
+              top: 3.2rem;
+              right: 3.2rem;
+              width: 6.2rem;
+              height: 6.2rem;
+              border-radius: 50%;
+              background: $dark;
+
+              @mixin isPT{
+                top: $padgut;
+                right: $padgut;
+              }
+
+              &::before, &::after{
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 3rem;
+                height: 2px;
+                background: $light; 
+              }
+              &::before{
+                transform: translate(-50%, -50%) rotate(45deg);
+              }
+              &::after{
+                transform: translate(-50%, -50%) rotate(-45deg);
+              }
+            }
+            .hold{
+              width: 100%;
+              max-width: 49rem;
+
+              .frm{
+
+                .flds{
+                  display: flex;
+                  flex-direction: column;
+                  
+
+                  .chk{
+                    margin-top: 1.2rem;
+                  }
+                }
+
+
+                &_btn{
+                  margin-top: 2.4rem;
+                  margin-left: auto;
+                  padding-top: .6rem;
+                  padding-right: .6rem;
+                  padding-bottom: .6rem; 
+                }
+
+              }
+            }
+          }
+
+
+          &:not(.A){
+            .ops_el_form{
+              clip-path: inset(0 0 100% 0);
+
+              form{
+                display: none;
+              }
+            }
+          }
+        } 
+      }
+
+    }
+
+  }
+}
+

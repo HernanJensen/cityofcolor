@@ -5,93 +5,61 @@ $intro = new stdClass();
 $intro->title = 'Intro';
 $intro->fields = [
   [
-    'label' => 'Title',
-    'type'=>'0'
+    'label' => 'Título',
+    'type'=>'0',
   ],
+  [
+    'label' => 'Media',
+    'type'=>'15',
+  ],
+];
 
+
+
+$forms = new stdClass();
+$forms->title = 'Colabora';
+$forms->fields = [
   [
-    'label' => 'Subtitle',
-    'type'=>'b0'
+    'label' => 'Título',
+    'type'=>'0',
   ],
+  
   [
-    'label' => 'Text',
-    'type'=>'1',
-    'op'=>'1'
-  ],
-  [
-    'label' => 'List',
+    'label' => 'Bloques',
     'type'=>'9',
+    'ops'=>[
+      'min'=>3,
+      'max'=>3
+    ],
     'subs'=>[
       [
-        'label'=>'title',
+        'label' => 'Título',
         'type'=>'0',
         'name'=>'title'
       ],
-    ]
-  ]
- 
-];
-
-
-$cta = new stdClass();
-$cta->title = 'CTA';
-$cta->fields = [
-  [
-    'label' => 'Title',
-    'type'=>'0'
-  ],
-
-  [
-    'label' => 'Text',
-    'type'=>'1',
-    'op'=>'1'
-  ],
-  [
-    'label' => 'Button',
-    'type'=>'6',
-  ]
- 
-];
-
-
-$contact = new stdClass();
-$contact->title = 'Contact';
-$contact->fields = [
-  [
-    'label' => 'Title',
-    'type'=>'0'
-  ],
-  [
-    'label' => 'List',
-    'type'=>'9',
-    'subs'=>[
       [
-        'label'=>'Type',
-        'type'=>'16',
-        'name'=>'type',
-        'ops'=>[
-          'choices' => [
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'address' => 'Address',
-          ],
-        ]
+        'label'=>'Texto',
+        'type'=>'1',
+        'op'=>'2',
+        'name'=>'wysi'
       ],
       [
-        'label'=>'Link',
-        'type'=>'6',
-        'name'=>'link'
+        'label' => 'Texto botón',
+        'type'=>'0',
+        'name'=>'button'
       ],
-    ]
+    ],
   ],
 ];
 
 
 
-$parts = [$intro, $cta, $contact];
+
+
+$parts = [$intro, $forms];
 
 $control = [];
-$control['title'] = 'Contact';
+$control['title'] = 'Contacto';
 $control['key'] = 'contactpage';
 $control['acfml_field_group_mode'] = 'translation';
 $control['show_in_rest'] = 1;

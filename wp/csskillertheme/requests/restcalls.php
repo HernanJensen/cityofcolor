@@ -25,10 +25,10 @@ add_action( 'rest_api_init', function () {
     //}
 ) );
   // RUTA PARA CARGAR VISTA
-  register_rest_route( 'csskiller/v1', '/sendform/', array(
+  register_rest_route( 'csskiller/v1', '/sendForm/', array(
     'methods' => ['POST','GET'],
     // 'methods' => 'POST',
-    'callback' => 'get_sendform',
+    'callback' => 'sendForm',
     //'permission_callback' => function () {
     //  return current_user_can( 'administrator' );
     //}
@@ -177,8 +177,9 @@ function getSkin( $data ) {
 }
 
 
-function get_sendform( $data ) {
-  $asunto = get_bloginfo('name').' Contact Form';
+function sendForm($data ) {
+  
+  $asunto = get_bloginfo('name').' - Formulario web';
   $fields = '';
 
   $form = $_POST['form'] ? $_POST['form'] : $form;
@@ -187,11 +188,14 @@ function get_sendform( $data ) {
   $tempData = str_replace("\\","",$form);
   $cleanData = json_decode($tempData);
 
-
+  // print_r($cleanData);
   $email = '';
   $destinatario = get_field('email','options') ?? 'hs51ck00@gmail.com';
   foreach($cleanData as $i){
-    $fields.='<h2>'.$i->label.'</h2><p>'.$i->value.'</p><br /><br />';
+
+    $label = $i->label ?? '';
+    $value = $i->value ?? '';
+    $fields.='<h2>'.$label.'</h2><p>'.$value.'</p><br /><br />';
 
     if($i->label == "email"){
       $email = $i->value;

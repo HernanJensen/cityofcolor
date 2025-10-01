@@ -1,5 +1,76 @@
 include ./basic/mixins.pug
-main.contact(data-skin="contact")
-  section.CMP.contact_intro(data-cmp="intro")
+.VIU(data-skin="contact").contact
+  
+  main
+    section.contact_intro 
+      .grid-vw
+        .im
+          +media(
+            [
+              'ass'=> $imvid_0,
+              'lazy'=>0,
+              'res'=>$res,
+              'auto'=>'yes'
+            ]
+          )
+        .info 
+          h1.h1(data-split="lines:{wrap:clip|clone:bottom}|words:false")!=$title_0
 
-  +footer()
+          .aScr
+            i.aScr_i 
+              +icon('arrow-down')
+            span.aScr_t.grt SABER MÁS
+
+    section.contact_ops
+      .grid-vw 
+        h2.h2!=$title_1
+        if $rep_1
+          .ops
+            each $a, $k in $rep_1
+              .ops_el 
+                .icon 
+                  +icon('logoblack')
+                h3.h5!=$a['title']
+                .p-s!=$a['wysi']
+                button.ops_el_btn.aBtn(aria-label=$a['button'])
+                  .aBtn_t 
+                    span.r!=$a['button']
+                    span.c!=$a['button']
+                  .aBtn_i 
+                    +icon('arrow')
+
+                .ops_el_form.grid-vw(data-lenis-prevent)
+                  button.close(aria-label="Cerrar")
+
+                  .hold 
+                    form.frm(data-title=$a['title'] aria-describedby="privacy-note" novalidate)
+                      .flds
+                        .fld.p-l
+                          input.fld_npt(autocomplete="false" type="text" id="nombre_".$k name="Nombre" placeholder="Nombre" aria-label="Nombre" required="required")
+                        .fld.p-l
+                          input.fld_npt(type="email" autocomplete="false" id="email_".$k name="Email" placeholder="Email" aria-label="Email" required="required")
+                        .fld.p-l
+                          input.fld_npt(type="tel" autocomplete="false" id="telefono_".$k name="Telefono" placeholder="Teléfono" aria-label="Teléfono" required="required")
+                        .fld.p-l
+                          textarea.fld_npt( autocomplete="false" id="mensaje_".$k name="Mensaje" placeholder="Mensaje" aria-label="Mensaje" required="required")
+                        
+                        
+                        .chk
+                          input.chk_npt(type="checkbox" id="monoselector_".$k name="monoselector" required="required")
+                          label.chk_lbl(for="monoselector_".$k) Acepto los términos y condiciones
+                      
+                        button.frm_btn.aBtn(type="submit")
+                          .aBtn_t   
+                            span.r Enviar 
+                            span.c Enviar
+                          .aBtn_i 
+                            +icon('arrow')
+
+                      .frm_done.hOBRs(aria-label="hidden")
+                        .frm_done_h.hOBRm Mensaje enviado
+          
+
+
+
+
+  +footer

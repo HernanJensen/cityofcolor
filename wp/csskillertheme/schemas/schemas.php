@@ -17,6 +17,7 @@ require_once(locate_template('/schemas/static/home.php'));
 require_once(locate_template('/schemas/static/about.php'));
 require_once(locate_template('/schemas/static/que.php'));
 require_once(locate_template('/schemas/static/quien.php'));
+require_once(locate_template('/schemas/static/contact.php'));
 require_once(locate_template('/schemas/static/blog.php'));
 require_once(locate_template('/schemas/static/legal.php'));
 
@@ -30,6 +31,7 @@ function ea_disable_editor( $id = false) {
 		'page-about.php',
 		'page-que.php',
 		'page-quien.php',
+		'page-contact.php',
 		'page-legal.php',
 		'templates/contact.php'
 		

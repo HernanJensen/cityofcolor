@@ -20,35 +20,35 @@
 
       span{
         display:block;
-        color:$grey;
+        color:$dark;
         margin-top:1.5rem;
       }
   }
 
   &_npt{
-    padding: 1.2rem 1rem;
+    padding: 1.8rem 2.2rem;
     width: 100%;
-    border:1px solid toRGBA($grey, .25);
-    border-radius:2px;
+    border:1px solid $dark;
+    border-radius:max(1.4rem, 14px);
     transition: .45s color $swiftOut;
     position:relative;
     overflow-x:hidden;
 
-    font-size:max(1.6rem,16px);
+    /* font-size:max(1.6rem,16px); */
     transition:.4s border-color $swiftOut;
 
     &::placeholder{
-      font-size: max(1.4rem,14px);
-      color: $grey;
-      transition:.24s opacity .3s $swiftOut,.6s transform $swiftOut;
+      /* font-size: max(1.4rem,14px); */
+      color: $dark;
+      /* transition:.4s opacity  $swiftOut,.6s transform $swiftOut; */
     }
 
     &:focus{
       border-color:$dark;
       &::placeholder{
-        opacity:0;
-        transform:translateX(16px);
-        transition:.4s opacity  $swiftOut,.6s transform $swiftOut;
+        /* opacity:0; */
+        /* transform:translateX(16px); */
+       
 
       }
     }
@@ -63,7 +63,7 @@
 
     &_h{
       padding-top:1.5rem;
-      color:$grey;
+      color:$dark;
     }
   }
 
@@ -75,10 +75,10 @@
   }
 
   & + .fld{
-    margin-top:4rem;
+    margin-top:2.4rem;
   }
   & + .rad{
-    margin-top:4rem;
+    margin-top:2.4rem;
   }
 
 
@@ -99,7 +99,7 @@
 
     .p {
       & + ul{
-        color:$grey;
+        color:$dark;
         margin-top:1rem;
         li{
           line-height:1.5;
@@ -143,7 +143,7 @@
 
       &_h{
         padding-top:1.5rem;
-        color:$grey;
+        color:$dark;
       }
     }
 
@@ -231,7 +231,7 @@
 
       }
       & + .p{
-        color:$grey;
+        color:$dark;
         margin-top:1rem;
       }
     }
@@ -263,7 +263,7 @@
 
       &_h{
         padding-top:1.5rem;
-        color:$grey;
+        color:$dark;
 
       }
 
@@ -305,9 +305,9 @@
   &_npt{
     width: max(1.5rem, 15px);
     aspect-ratio: 1/1;
-    border-radius: 2px;
+    border-radius: 50%;
     background: transparent;
-    border: 1px solid $grey;
+    border: 1px solid $dark;
     position: relative;
     transition: .3s border-color $swiftOut;
     cursor: pointer;
@@ -381,7 +381,7 @@
 
     &_h{
       padding-top:1.5rem;
-      color:$grey;
+      color:$dark;
     }
 
 
@@ -409,7 +409,7 @@
       p{
         & + p{
 
-          color:$grey;
+          color:$dark;
           margin-top:1rem;
         }
       }

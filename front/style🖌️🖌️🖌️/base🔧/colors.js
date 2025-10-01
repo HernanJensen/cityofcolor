@@ -3,6 +3,8 @@ export default {
   light: '#F4F3E7',
   dark: '#000000',
   beige: '#EDEBD8',
+
+
   yellow: '#FBBC1F',
   blue: '#1979F4',
   pink: '#FFA8A7',
