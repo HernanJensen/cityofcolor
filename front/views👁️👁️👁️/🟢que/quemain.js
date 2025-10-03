@@ -8,8 +8,7 @@ import { swiftOut, timeout, debounce } from '/front/js🧠🧠🧠/🔧utils.js'
 
 import { callCenter } from '/front/start🏁🏁🏁/callcenter🧱.js'
 
-
-import { Sld } from '/front/comps🦾🦾🦾/slider🎞️.js'
+import { sldSnapFn } from '/front/comps🦾🦾🦾/sldsnap/sldsnap.js'
 
 export class que extends doom {
   constructor(el) {
@@ -148,6 +147,34 @@ export class que extends doom {
           //     bar.style.width = String( 100 * rate ) + '%'
           //   } )
           // }
+
+        }
+
+        if (isMobile && this.main.querySelector('.que_area .splide')) {
+          const splide = this.main.querySelector('.que_area .splide')
+
+          let type = splide.dataset.type ? splide.dataset.type : 'loop'
+          let focus = splide.dataset.focus ? splide.dataset.focus : 'center'
+          let autoWidth = splide.dataset.autoWidth ? splide.dataset.autoWidth : true
+          let pagination = splide.dataset.pagination ? splide.dataset.pagination : false
+
+          let bar = splide.querySelector('.prgEl')
+
+
+          const slider = new Splide(splide,
+            {
+              type: 'slide',
+              autoWidth: autoWidth,
+              drag: true,
+              focus: 'center',
+              omitEnd: true,
+              arrows: false,
+              gap: '2rem',
+              bullets: true,
+              pagination: true,
+              paginationType: 'bullets',
+
+            }).mount()
 
         }
 

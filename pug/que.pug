@@ -72,16 +72,24 @@ include ./basic/mixins.pug
     section.que_area
       .grid-vw 
         h2.h2!=$title_4
-        if $rep_4
-          .list
-            each $a in $rep_4
-              .list_el
-                .i 
-                  +icon('logoblack')
-                h3.p!=$a['title']
-                .p-s!=$a['text']
+      if $rep_4
+        - $chunks = array_chunk($rep_4, 3)
+        .list.splide(data-type="slide" data-focus="left")
+          .splide__track 
+            .splide__list 
+              each $bk in $chunks
+                .splide__slide.list_row
+                  each $a in $bk
+                    .list_el
+                      .i 
+                        +icon('logoblack')
+                      h3.p!=$a['title']
+                      .p-s!=$a['text']
+          
 
-        if $link_4
+
+      if $link_4
+        .grid-vw
           a.aBtn(href=$link_4['url']  aria-label=$link_4['title'])
             .aBtn_t
               span.r!=$link_4['title']

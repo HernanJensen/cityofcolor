@@ -74,8 +74,8 @@ export class home extends doom {
 
       const lgt = splide.querySelectorAll('.splide__slide').length - 1
 
-      if (splide.querySelector('.TL')) splide.querySelector('.TL').onclick = () => this.slider.go('-${i}')
-      if (splide.querySelector('.TR')) splide.querySelector('.TR').onclick = () => { if (this.slider.index < lgt) this.slider.go('+${i}') }
+      if (splide.querySelector('.TL')) splide.querySelector('.TL').onclick = () => slider.go('-${i}')
+      if (splide.querySelector('.TR')) splide.querySelector('.TR').onclick = () => { if (slider.index < lgt) slider.go('+${i}') }
     }
 
     const ANM = anime.createTimeline({

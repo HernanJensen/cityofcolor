@@ -1,0 +1,73 @@
+.sld{
+
+
+  position:relative;
+
+    
+  &H{
+
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: scroll;
+    
+    padding: 0;
+    &::-webkit-scrollbar {
+      width: 0px;
+      display: none;
+      background: transparent; /* make scrollbar transparent */
+    }
+    scroll-snap-type: x mandatory;
+    @mixin hover{
+      &:hover{
+        cursor:grab;
+      }
+    }
+    &.A {
+      scroll-snap-type: none;
+      
+      @mixin hover{
+        &:hover{
+          cursor:grabbing;
+        }
+      }
+    }
+
+
+  }
+
+    &_el{
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      picture,
+      video,
+      img{
+        pointer-events:none;
+      }
+    }
+
+
+    &_blts{
+      position:absolute;
+      left:50%;
+      bottom:1.5rem;
+      transform:translateX(-50%);
+      z-index:3;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      .blt{
+        width:.8rem;
+        aspect-ratio:1;
+        background:white;
+        opacity:.5;
+        border-radius:50%;
+        transition:.3s opacity $swiftOut;
+        &A{
+          opacity:1;
+        }
+      }
+    }
+}

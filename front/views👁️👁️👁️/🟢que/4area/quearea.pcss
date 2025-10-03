@@ -5,81 +5,162 @@
     padding-top: 9rem;
     padding-bottom: 16rem;
     background: $beige;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7.2rem;
+    text-align: center;
     .grid-vw{
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 7.2rem;
       text-align: center;
-
-      .list{
-        max-width: 116rem;
+    }
+    .list{
+      max-width: 116rem;
+      width: 100%;
+      position: relative;
+      /* overflow: clip; */
+      visibility: visible !important;
+      padding: 0 $padgut;
+      @mixin isMobile{
+        padding: 0;
+      }
+      .splide__list{
+        width: 100%;
+        @mixin isMain{
+          display:flex;
+          gap: 6.4rem;
+          flex-direction: column;
+        }
+        @mixin isPT{
+          display:grid;
+          gap: 6.4rem;
+          grid-template-columns: 1fr 1fr; 
+        }
+        @mixin isMobile{
+          display: flex;
+          gap: 0;
+        }
+      }
+      &_row{
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 6.4rem ;
+        
         @mixin isPT{
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          display: grid;
+          gap: 3.2rem;
         }
         @mixin isMobile{
-          grid-template-columns: 1fr;
-        }
-        &_el{
-          display: flex;
+          flex-shrink: 0; 
+          display:flex;
           flex-direction: column;
-          gap: 1.6rem;
-          align-items: center;
+          /* flex: 0 0 100%; */
+          scroll-snap-align: start;
+          
+        }
 
-          &:nth-child(6n+1){
-            --iC: $yellow;
+        &:nth-child(odd){
+          .list_el{
+            
+            &:nth-child(3n+1){
+              --iC: $yellow;
+            }
+            &:nth-child(3n+2){
+              --iC: $blue;
+            }
+            &:nth-child(3n+3){
+              --iC: $red;
+            }
           }
-          &:nth-child(6n+2){
-            --iC: $blue;
+        }
+
+        &:nth-child(even){
+          .list_el{
+            
+            &:nth-child(3n+1){
+              --iC: $green;
+            }
+            &:nth-child(3n+2){
+              --iC: $pink;
+            }
+            &:nth-child(3n+3){
+              --iC: $purple;
+            }
           }
-          &:nth-child(6n+3){
-            --iC: $red;
+        }
+      }
+      &_el{
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: center;
+        @mixin isMobile{
+          padding: 0 $padgut;
+          width: 100%;
+        }
+        .i{
+          width: 7rem;
+          height: 7rem;
+          display : flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background: var(--iC);
+          svg{
+            width: 4.4rem;
+            path{
+              fill: #FFF;
+            }
           }
-          &:nth-child(6n+4){
-            --iC: $green;
-          }
-          &:nth-child(6n+5){
-            --iC: $pink;
-          }
-          &:nth-child(6n+6){
-            --iC: $purple;
-          }
-          .i{
-            width: 7rem;
-            height: 7rem;
-            display : flex;
-            justify-content: center;
-            align-items: center;
+
+        }
+        h3{
+          font-size: 2.4rem;
+          font-weight: 700;
+          color: $dark;
+        }
+
+        p{
+          font-size: 1.8rem;
+          line-height: 1.6;
+          color: $dark;
+        }
+      }
+
+      .splide__pagination{
+        margin-top: 4rem;
+        button{
+          @mixin isMobile{
+            width: 1.6rem;
+            height: 1.6rem;
+            background: transparent;
             border-radius: 50%;
-            background: var(--iC);
-            svg{
-              width: 4.4rem;
-              path{
-                fill: #FFF;
+            border:1px solid $dark;
+            margin: 0 0.4rem;
+            transition: .45s background $swiftOut;
+            &.is-active{
+              background: $dark;
+            }
+
+            &:not(.is-active){
+              @mixin hover{
+                &:hover{
+                  background: $dark;
+                }
               }
             }
 
           }
-          h3{
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: $dark;
-          }
-
-          p{
-            font-size: 1.8rem;
-            line-height: 1.6;
-            color: $dark;
-          }
         }
-
       }
+
     }
-   
   }
 
 

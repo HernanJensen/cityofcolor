@@ -21,6 +21,68 @@
         overflow: visible;
       } 
 
+      .splide_arrows{
+        padding: 4rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 1;
+        @mixin isPT{
+          display: none;
+        }
+        .aPag{
+          pointer-events: all;
+          background: rgba(#F4F3E7,.8);
+          border-radius: 50%;
+          width: 8rem;
+          height: 8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: .45s opacity $swiftOut;
+          position: relative;
+          overflow: hidden;
+
+          &::before{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: $bg;
+            opacity: .6;
+            transition: .45s opacity $swiftOut;
+          }
+
+
+          &:hover{
+            &::before{
+              opacity: 1;
+            }
+          }
+
+          &.TL{
+            transform: rotate(180deg);
+          }
+
+          &_i{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            position: relative;
+            svg{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+
       &_el{
         
         min-height: 46rem;

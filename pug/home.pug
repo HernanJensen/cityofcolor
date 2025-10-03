@@ -96,8 +96,15 @@ include ./basic/mixins.pug
                     .h3.year!=$a['year']
                     h4.capt-s!=$a['title2']
                     .p-s!=$a['text']
-        if $link_3
+          .splide_arrows
+            button.aPag.TL(aria-label="Anterior") 
+              .aPag_i 
+                +icon('arrow')
+            button.aPag.TR(aria-label="Siguiente")
+              .aPag_i 
+                +icon('arrow')
 
+        if $link_3
           a.aBtn(href=$link_3['url'] aria-label=$link_3['title'])
             .aBtn_t
               span.r!=$link_3['title']
